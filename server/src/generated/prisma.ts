@@ -118,6 +118,7 @@ type Subscription {
 
 type User implements Node {
   id: ID!
+  name: String!
   email: String!
   password: String!
 }
@@ -133,6 +134,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  name: String!
   email: String!
   password: String!
 }
@@ -149,6 +151,8 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
+  name_ASC
+  name_DESC
   email_ASC
   email_DESC
   password_ASC
@@ -161,6 +165,7 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
+  name: String!
   email: String!
   password: String!
 }
@@ -205,6 +210,7 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
+  name: String
   email: String
   password: String
 }
@@ -258,6 +264,46 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
   email: String
 
   """All values that are not equal to given value."""
@@ -354,6 +400,8 @@ export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({typeDe
 
 export type UserOrderByInput =   'id_ASC' |
   'id_DESC' |
+  'name_ASC' |
+  'name_DESC' |
   'email_ASC' |
   'email_DESC' |
   'password_ASC' |
@@ -368,6 +416,7 @@ export type MutationType =   'CREATED' |
   'DELETED'
 
 export interface UserCreateInput {
+  name: String
   email: String
   password: String
 }
@@ -378,6 +427,7 @@ export interface UserWhereUniqueInput {
 }
 
 export interface UserUpdateInput {
+  name?: String
   email?: String
   password?: String
 }
@@ -411,6 +461,20 @@ export interface UserWhereInput {
   id_not_starts_with?: ID_Input
   id_ends_with?: ID_Input
   id_not_ends_with?: ID_Input
+  name?: String
+  name_not?: String
+  name_in?: String[] | String
+  name_not_in?: String[] | String
+  name_lt?: String
+  name_lte?: String
+  name_gt?: String
+  name_gte?: String
+  name_contains?: String
+  name_not_contains?: String
+  name_starts_with?: String
+  name_not_starts_with?: String
+  name_ends_with?: String
+  name_not_ends_with?: String
   email?: String
   email_not?: String
   email_in?: String[] | String
@@ -451,6 +515,7 @@ export interface Node {
 
 export interface UserPreviousValues {
   id: ID_Output
+  name: String
   email: String
   password: String
 }
@@ -479,6 +544,7 @@ export interface UserSubscriptionPayload {
 
 export interface User extends Node {
   id: ID_Output
+  name: String
   email: String
   password: String
 }
