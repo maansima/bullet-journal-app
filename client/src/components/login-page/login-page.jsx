@@ -1,4 +1,4 @@
-import "./login-page/login-page.css"
+import "./login-page.css"
 
 class LoginPage extends React.Component {
     state = {
@@ -9,9 +9,9 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-                <Navigation history={this.props.history} />
+                {/* <Navigation history={this.props.history} /> */}
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt={"logo"} />
+                    {/* <img src={logo} className="App-logo" alt={"logo"} /> */}
                     <h1 className="App-title">TWEETER</h1>
                 <div className="login-form">
                     <Mutation mutation={LOGIN}>

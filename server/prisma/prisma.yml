@@ -1,5 +1,6 @@
 
-endpoint: ${env:PRISMA_ENDPOINT}
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://eu1.prisma.sh/legina-chen/legina/dev
 
 datamodel: datamodel.graphql
 

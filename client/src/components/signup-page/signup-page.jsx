@@ -1,4 +1,4 @@
-import "./signup-page/signup-page.css"
+import "./signup-page.css"
 import * as React from "react"
 import { Mutation } from "react-apollo"
 // import gql from "graphql-tag"
@@ -14,9 +14,9 @@ class SignUp extends React.Component {
     render() {
         return (
             <div>
-                <Navigation history={this.props.history} />
+                {/* <Navigation history={this.props.history} /> */}
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt={"logo"} />
+                    {/* <img src={logo} className="App-logo" alt={"logo"} /> */}
                     <h1 className="App-title">TWEETER</h1>
                 <Mutation mutation={SIGNUP}>
                     {signup => {

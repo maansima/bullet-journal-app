@@ -3,6 +3,8 @@ import { hot } from "react-hot-loader"
 import { Switch, Route } from "react-router-dom"
 import HomePage from "./components/home-page/home-page"
 import "./App.css"
+import SignupPage from "./components/signup-page/signup-page"
+import LoginPage from "./components/signup-page/signup-page"
 
 class App extends React.Component {
   public render() {
@@ -10,6 +12,8 @@ class App extends React.Component {
       <div className="App">
         <Switch>
           <Route exact={true} path="/" component={HomePage} />
+          <Route exact={true} path="/login" component={LoginPage}/>
+          <Route exact={true} path="/signup" component={SignupPage}/>
         </Switch>
       </div>
     )
