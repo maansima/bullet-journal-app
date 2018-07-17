@@ -1,5 +1,5 @@
-# source: https://eu1.prisma.sh/bealitonjua9-c63238/bullet-journal-app/dev
-# timestamp: Tue Jul 17 2018 00:11:06 GMT+0100 (BST)
+# source: https://eu1.prisma.sh/maansi-manchanda/todo/dev
+# timestamp: Tue Jul 17 2018 17:36:29 GMT+0100 (WEST)
 
 type AggregateTask {
   count: Int!
@@ -405,7 +405,6 @@ type User implements Node {
   username: String!
   email: String!
   password: String!
-  partner(where: UserWhereInput): User!
   tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
   followers(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
   following(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
@@ -426,7 +425,6 @@ input UserCreateInput {
   username: String!
   email: String!
   password: String!
-  partner: UserCreateOneInput!
   tasks: TaskCreateManyWithoutAuthorInput
   followers: UserCreateManyInput
   following: UserCreateManyInput
@@ -435,11 +433,6 @@ input UserCreateInput {
 input UserCreateManyInput {
   create: [UserCreateInput!]
   connect: [UserWhereUniqueInput!]
-}
-
-input UserCreateOneInput {
-  create: UserCreateInput
-  connect: UserWhereUniqueInput
 }
 
 input UserCreateOneWithoutTasksInput {
@@ -452,7 +445,6 @@ input UserCreateWithoutTasksInput {
   username: String!
   email: String!
   password: String!
-  partner: UserCreateOneInput!
   followers: UserCreateManyInput
   following: UserCreateManyInput
 }
@@ -535,7 +527,6 @@ input UserUpdateDataInput {
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
   tasks: TaskUpdateManyWithoutAuthorInput
   followers: UserUpdateManyInput
   following: UserUpdateManyInput
@@ -546,7 +537,6 @@ input UserUpdateInput {
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
   tasks: TaskUpdateManyWithoutAuthorInput
   followers: UserUpdateManyInput
   following: UserUpdateManyInput
@@ -559,14 +549,6 @@ input UserUpdateManyInput {
   delete: [UserWhereUniqueInput!]
   update: [UserUpdateWithWhereUniqueNestedInput!]
   upsert: [UserUpsertWithWhereUniqueNestedInput!]
-}
-
-input UserUpdateOneInput {
-  create: UserCreateInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateDataInput
-  upsert: UserUpsertNestedInput
 }
 
 input UserUpdateOneWithoutTasksInput {
@@ -582,7 +564,6 @@ input UserUpdateWithoutTasksDataInput {
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
   followers: UserUpdateManyInput
   following: UserUpdateManyInput
 }
@@ -590,11 +571,6 @@ input UserUpdateWithoutTasksDataInput {
 input UserUpdateWithWhereUniqueNestedInput {
   where: UserWhereUniqueInput!
   data: UserUpdateDataInput!
-}
-
-input UserUpsertNestedInput {
-  update: UserUpdateDataInput!
-  create: UserCreateInput!
 }
 
 input UserUpsertWithoutTasksInput {
@@ -817,7 +793,6 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
-  partner: UserWhereInput
   tasks_every: TaskWhereInput
   tasks_some: TaskWhereInput
   tasks_none: TaskWhereInput
@@ -833,9 +808,6 @@ input UserWhereInput {
   _MagicalBackRelation_UserFollowing_every: UserWhereInput
   _MagicalBackRelation_UserFollowing_some: UserWhereInput
   _MagicalBackRelation_UserFollowing_none: UserWhereInput
-  _MagicalBackRelation_UserPartner_every: UserWhereInput
-  _MagicalBackRelation_UserPartner_some: UserWhereInput
-  _MagicalBackRelation_UserPartner_none: UserWhereInput
 }
 
 input UserWhereUniqueInput {
