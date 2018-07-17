@@ -1,13 +1,14 @@
 type User {
   id: ID! @unique
   name: String!
-  username: String!
+  username: String! @unique
   email: String! @unique
   password: String!
-  partner: User! 
+  partner: User!  @relation(name: "UserPartner")
   tasks: [Task!]!
-  # followers: [User!]!
-  # following: [User!]!
+
+  followers: [User!]! @relation(name: "UserFollows")
+  following: [User!]! @relation(name: "UserFollowing")
 }
 
 type Task { 
