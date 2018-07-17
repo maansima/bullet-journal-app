@@ -1,4 +1,5 @@
-endpoint: https://eu1.prisma.sh/maansi-manchanda/todo/dev
+endpoint: ${env:PRISMA_ENDPOINT}
+
 datamodel: datamodel.graphql
 
 hooks:
