@@ -1,14 +1,9 @@
-<<<<<<< HEAD
 # source: https://eu1.prisma.sh/vivianarosas1999-a6aca1/bullet-journal-app/dev
-# timestamp: Tue Jul 17 2018 12:04:19 GMT+0100 (WEST)
-=======
-# source: https://eu1.prisma.sh/maansi-manchanda/todo/dev
-# timestamp: Mon Jul 16 2018 22:52:34 GMT+0100 (WEST)
+# timestamp: Tue Jul 17 2018 13:31:03 GMT+0100 (WEST)
 
 type AggregateTask {
   count: Int!
 }
->>>>>>> d92dbda18b136343e5ebb73fde163c41c0f9a7a6
 
 type AggregateUser {
   count: Int!
