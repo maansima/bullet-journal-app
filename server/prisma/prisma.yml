@@ -4,6 +4,7 @@ endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.graphql
 
 disableAuth: true
+
 hooks:
   post-deploy:
     - graphql get-schema -p database
