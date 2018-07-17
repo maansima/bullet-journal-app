@@ -464,7 +464,6 @@ type User implements Node {
   username: String!
   email: String!
   password: String!
-  partner(where: UserWhereInput): User!
   tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
   followers(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
   following(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
@@ -485,7 +484,6 @@ input UserCreateInput {
   username: String!
   email: String!
   password: String!
-  partner: UserCreateOneInput!
   tasks: TaskCreateManyWithoutAuthorInput
   followers: UserCreateManyInput
   following: UserCreateManyInput
@@ -494,11 +492,6 @@ input UserCreateInput {
 input UserCreateManyInput {
   create: [UserCreateInput!]
   connect: [UserWhereUniqueInput!]
-}
-
-input UserCreateOneInput {
-  create: UserCreateInput
-  connect: UserWhereUniqueInput
 }
 
 input UserCreateOneWithoutTasksInput {
@@ -511,7 +504,6 @@ input UserCreateWithoutTasksInput {
   username: String!
   email: String!
   password: String!
-  partner: UserCreateOneInput!
   followers: UserCreateManyInput
   following: UserCreateManyInput
 }
@@ -594,7 +586,6 @@ input UserUpdateDataInput {
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
   tasks: TaskUpdateManyWithoutAuthorInput
   followers: UserUpdateManyInput
   following: UserUpdateManyInput
@@ -605,7 +596,6 @@ input UserUpdateInput {
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
   tasks: TaskUpdateManyWithoutAuthorInput
   followers: UserUpdateManyInput
   following: UserUpdateManyInput
@@ -618,14 +608,6 @@ input UserUpdateManyInput {
   delete: [UserWhereUniqueInput!]
   update: [UserUpdateWithWhereUniqueNestedInput!]
   upsert: [UserUpsertWithWhereUniqueNestedInput!]
-}
-
-input UserUpdateOneInput {
-  create: UserCreateInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateDataInput
-  upsert: UserUpsertNestedInput
 }
 
 input UserUpdateOneWithoutTasksInput {
@@ -641,7 +623,6 @@ input UserUpdateWithoutTasksDataInput {
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
   followers: UserUpdateManyInput
   following: UserUpdateManyInput
 }
@@ -649,11 +630,6 @@ input UserUpdateWithoutTasksDataInput {
 input UserUpdateWithWhereUniqueNestedInput {
   where: UserWhereUniqueInput!
   data: UserUpdateDataInput!
-}
-
-input UserUpsertNestedInput {
-  update: UserUpdateDataInput!
-  create: UserCreateInput!
 }
 
 input UserUpsertWithoutTasksInput {
@@ -876,7 +852,6 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
-  partner: UserWhereInput
   tasks_every: TaskWhereInput
   tasks_some: TaskWhereInput
   tasks_none: TaskWhereInput
@@ -892,9 +867,6 @@ input UserWhereInput {
   _MagicalBackRelation_UserFollowing_every: UserWhereInput
   _MagicalBackRelation_UserFollowing_some: UserWhereInput
   _MagicalBackRelation_UserFollowing_none: UserWhereInput
-  _MagicalBackRelation_UserPartner_every: UserWhereInput
-  _MagicalBackRelation_UserPartner_some: UserWhereInput
-  _MagicalBackRelation_UserPartner_none: UserWhereInput
 }
 
 input UserWhereUniqueInput {
@@ -940,9 +912,14 @@ export type MutationType =   'CREATED' |
   'UPDATED' |
   'DELETED'
 
-export interface TaskCreateManyWithoutAuthorInput {
-  create?: TaskCreateWithoutAuthorInput[] | TaskCreateWithoutAuthorInput
-  connect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
+export interface UserCreateInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  tasks?: TaskCreateManyWithoutAuthorInput
+  followers?: UserCreateManyInput
+  following?: UserCreateManyInput
 }
 
 export interface TaskWhereInput {
@@ -1010,10 +987,9 @@ export interface TaskWhereInput {
   author?: UserWhereInput
 }
 
-export interface TaskUpdateInput {
-  text?: String
-  status?: String
-  author?: UserUpdateOneWithoutTasksInput
+export interface TaskCreateWithoutAuthorInput {
+  text: String
+  status: String
 }
 
 export interface UserWhereInput {
@@ -1090,7 +1066,6 @@ export interface UserWhereInput {
   password_not_starts_with?: String
   password_ends_with?: String
   password_not_ends_with?: String
-  partner?: UserWhereInput
   tasks_every?: TaskWhereInput
   tasks_some?: TaskWhereInput
   tasks_none?: TaskWhereInput
@@ -1106,15 +1081,24 @@ export interface UserWhereInput {
   _MagicalBackRelation_UserFollowing_every?: UserWhereInput
   _MagicalBackRelation_UserFollowing_some?: UserWhereInput
   _MagicalBackRelation_UserFollowing_none?: UserWhereInput
-  _MagicalBackRelation_UserPartner_every?: UserWhereInput
-  _MagicalBackRelation_UserPartner_some?: UserWhereInput
-  _MagicalBackRelation_UserPartner_none?: UserWhereInput
 }
 
-export interface TaskCreateInput {
-  text: String
-  status: String
-  author: UserCreateOneWithoutTasksInput
+export interface TaskUpdateManyWithoutAuthorInput {
+  create?: TaskCreateWithoutAuthorInput[] | TaskCreateWithoutAuthorInput
+  connect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
+  disconnect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
+  delete?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
+  update?: TaskUpdateWithWhereUniqueWithoutAuthorInput[] | TaskUpdateWithWhereUniqueWithoutAuthorInput
+  upsert?: TaskUpsertWithWhereUniqueWithoutAuthorInput[] | TaskUpsertWithWhereUniqueWithoutAuthorInput
+}
+
+export interface UserUpdateWithoutTasksDataInput {
+  name?: String
+  username?: String
+  email?: String
+  password?: String
+  followers?: UserUpdateManyInput
+  following?: UserUpdateManyInput
 }
 
 export interface UserUpdateDataInput {
@@ -1122,33 +1106,21 @@ export interface UserUpdateDataInput {
   username?: String
   email?: String
   password?: String
-  partner?: UserUpdateOneInput
   tasks?: TaskUpdateManyWithoutAuthorInput
   followers?: UserUpdateManyInput
   following?: UserUpdateManyInput
 }
 
-export interface UserCreateOneWithoutTasksInput {
-  create?: UserCreateWithoutTasksInput
-  connect?: UserWhereUniqueInput
+export interface TaskUpdateInput {
+  text?: String
+  status?: String
+  author?: UserUpdateOneWithoutTasksInput
 }
 
-export interface UserUpdateOneWithoutTasksInput {
-  create?: UserCreateWithoutTasksInput
-  connect?: UserWhereUniqueInput
-  delete?: Boolean
-  update?: UserUpdateWithoutTasksDataInput
-  upsert?: UserUpsertWithoutTasksInput
-}
-
-export interface UserCreateWithoutTasksInput {
-  name: String
-  username: String
-  email: String
-  password: String
-  partner: UserCreateOneInput
-  followers?: UserCreateManyInput
-  following?: UserCreateManyInput
+export interface TaskCreateInput {
+  text: String
+  status: String
+  author: UserCreateOneWithoutTasksInput
 }
 
 export interface TaskSubscriptionWhereInput {
@@ -1162,8 +1134,8 @@ export interface TaskSubscriptionWhereInput {
   node?: TaskWhereInput
 }
 
-export interface UserCreateOneInput {
-  create?: UserCreateInput
+export interface UserCreateOneWithoutTasksInput {
+  create?: UserCreateWithoutTasksInput
   connect?: UserWhereUniqueInput
 }
 
@@ -1173,13 +1145,11 @@ export interface UserWhereUniqueInput {
   email?: String
 }
 
-export interface UserCreateInput {
+export interface UserCreateWithoutTasksInput {
   name: String
   username: String
   email: String
   password: String
-  partner: UserCreateOneInput
-  tasks?: TaskCreateManyWithoutAuthorInput
   followers?: UserCreateManyInput
   following?: UserCreateManyInput
 }
@@ -1189,20 +1159,37 @@ export interface UserUpsertWithoutTasksInput {
   create: UserCreateWithoutTasksInput
 }
 
+export interface UserCreateManyInput {
+  create?: UserCreateInput[] | UserCreateInput
+  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput
+}
+
+export interface TaskUpsertWithWhereUniqueWithoutAuthorInput {
+  where: TaskWhereUniqueInput
+  update: TaskUpdateWithoutAuthorDataInput
+  create: TaskCreateWithoutAuthorInput
+}
+
+export interface UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput
+  data: UserUpdateDataInput
+}
+
 export interface TaskUpdateWithWhereUniqueWithoutAuthorInput {
   where: TaskWhereUniqueInput
   data: TaskUpdateWithoutAuthorDataInput
 }
 
-export interface UserUpsertWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput
-  update: UserUpdateDataInput
-  create: UserCreateInput
+export interface TaskWhereUniqueInput {
+  id?: ID_Input
 }
 
-export interface TaskCreateWithoutAuthorInput {
-  text: String
-  status: String
+export interface UserUpdateOneWithoutTasksInput {
+  create?: UserCreateWithoutTasksInput
+  connect?: UserWhereUniqueInput
+  delete?: Boolean
+  update?: UserUpdateWithoutTasksDataInput
+  upsert?: UserUpsertWithoutTasksInput
 }
 
 export interface UserUpdateManyInput {
@@ -1214,45 +1201,9 @@ export interface UserUpdateManyInput {
   upsert?: UserUpsertWithWhereUniqueNestedInput[] | UserUpsertWithWhereUniqueNestedInput
 }
 
-export interface UserCreateManyInput {
-  create?: UserCreateInput[] | UserCreateInput
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput
-}
-
-export interface TaskUpdateWithoutAuthorDataInput {
-  text?: String
-  status?: String
-}
-
-export interface TaskWhereUniqueInput {
-  id?: ID_Input
-}
-
-export interface UserUpdateOneInput {
-  create?: UserCreateInput
-  connect?: UserWhereUniqueInput
-  delete?: Boolean
-  update?: UserUpdateDataInput
-  upsert?: UserUpsertNestedInput
-}
-
-export interface UserUpdateWithoutTasksDataInput {
-  name?: String
-  username?: String
-  email?: String
-  password?: String
-  partner?: UserUpdateOneInput
-  followers?: UserUpdateManyInput
-  following?: UserUpdateManyInput
-}
-
-export interface TaskUpdateManyWithoutAuthorInput {
+export interface TaskCreateManyWithoutAuthorInput {
   create?: TaskCreateWithoutAuthorInput[] | TaskCreateWithoutAuthorInput
   connect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
-  disconnect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
-  delete?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
-  update?: TaskUpdateWithWhereUniqueWithoutAuthorInput[] | TaskUpdateWithWhereUniqueWithoutAuthorInput
-  upsert?: TaskUpsertWithWhereUniqueWithoutAuthorInput[] | TaskUpsertWithWhereUniqueWithoutAuthorInput
 }
 
 export interface UserUpdateInput {
@@ -1260,7 +1211,6 @@ export interface UserUpdateInput {
   username?: String
   email?: String
   password?: String
-  partner?: UserUpdateOneInput
   tasks?: TaskUpdateManyWithoutAuthorInput
   followers?: UserUpdateManyInput
   following?: UserUpdateManyInput
@@ -1277,18 +1227,13 @@ export interface UserSubscriptionWhereInput {
   node?: UserWhereInput
 }
 
-export interface TaskUpsertWithWhereUniqueWithoutAuthorInput {
-  where: TaskWhereUniqueInput
-  update: TaskUpdateWithoutAuthorDataInput
-  create: TaskCreateWithoutAuthorInput
+export interface TaskUpdateWithoutAuthorDataInput {
+  text?: String
+  status?: String
 }
 
-export interface UserUpdateWithWhereUniqueNestedInput {
+export interface UserUpsertWithWhereUniqueNestedInput {
   where: UserWhereUniqueInput
-  data: UserUpdateDataInput
-}
-
-export interface UserUpsertNestedInput {
   update: UserUpdateDataInput
   create: UserCreateInput
 }
@@ -1370,7 +1315,6 @@ export interface User extends Node {
   username: String
   email: String
   password: String
-  partner: User
   tasks?: Task[]
   followers?: User[]
   following?: User[]

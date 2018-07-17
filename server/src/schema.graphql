@@ -6,9 +6,9 @@ type Query {
 }
 
 type Mutation {
-  signup(email: String!, password: String!, name: String!): AuthPayload!
+  signup(name: String!, email: String!, password: String!, username: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
-  createTask(text: String!, username: String!): Task!
+  createTask(text: String!): Task!
   follow(follow_username: String!, username: String!): User 
   unfollow(unfollow_username: String!, username: String!): User
 }
