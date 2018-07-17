@@ -1,4 +1,4 @@
-endpoint: https://eu1.prisma.sh/maansi-manchanda/todo/dev
+endpoint: https://eu1.prisma.sh/vivianarosas1999-a6aca1/bullet-journal-app/dev
 datamodel: datamodel.graphql
 
 hooks:
