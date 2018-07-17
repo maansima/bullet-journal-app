@@ -1,5 +1,5 @@
-# source: https://eu1.prisma.sh/maansi-manchanda/todo/dev
-# timestamp: Mon Jul 16 2018 22:52:34 GMT+0100 (WEST)
+# source: https://eu1.prisma.sh/bealitonjua9-c63238/bullet-journal-app/dev
+# timestamp: Tue Jul 17 2018 00:11:06 GMT+0100 (BST)
 
 type AggregateTask {
   count: Int!
@@ -407,6 +407,8 @@ type User implements Node {
   password: String!
   partner(where: UserWhereInput): User!
   tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
+  followers(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  following(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
 }
 
 """A connection to a list of items."""
@@ -426,6 +428,13 @@ input UserCreateInput {
   password: String!
   partner: UserCreateOneInput!
   tasks: TaskCreateManyWithoutAuthorInput
+  followers: UserCreateManyInput
+  following: UserCreateManyInput
+}
+
+input UserCreateManyInput {
+  create: [UserCreateInput!]
+  connect: [UserWhereUniqueInput!]
 }
 
 input UserCreateOneInput {
@@ -444,6 +453,8 @@ input UserCreateWithoutTasksInput {
   email: String!
   password: String!
   partner: UserCreateOneInput!
+  followers: UserCreateManyInput
+  following: UserCreateManyInput
 }
 
 """An edge in a connection."""
@@ -526,6 +537,8 @@ input UserUpdateDataInput {
   password: String
   partner: UserUpdateOneInput
   tasks: TaskUpdateManyWithoutAuthorInput
+  followers: UserUpdateManyInput
+  following: UserUpdateManyInput
 }
 
 input UserUpdateInput {
@@ -535,6 +548,17 @@ input UserUpdateInput {
   password: String
   partner: UserUpdateOneInput
   tasks: TaskUpdateManyWithoutAuthorInput
+  followers: UserUpdateManyInput
+  following: UserUpdateManyInput
+}
+
+input UserUpdateManyInput {
+  create: [UserCreateInput!]
+  connect: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  delete: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueNestedInput!]
+  upsert: [UserUpsertWithWhereUniqueNestedInput!]
 }
 
 input UserUpdateOneInput {
@@ -559,6 +583,13 @@ input UserUpdateWithoutTasksDataInput {
   email: String
   password: String
   partner: UserUpdateOneInput
+  followers: UserUpdateManyInput
+  following: UserUpdateManyInput
+}
+
+input UserUpdateWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateDataInput!
 }
 
 input UserUpsertNestedInput {
@@ -569,6 +600,12 @@ input UserUpsertNestedInput {
 input UserUpsertWithoutTasksInput {
   update: UserUpdateWithoutTasksDataInput!
   create: UserCreateWithoutTasksInput!
+}
+
+input UserUpsertWithWhereUniqueNestedInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {
@@ -784,12 +821,25 @@ input UserWhereInput {
   tasks_every: TaskWhereInput
   tasks_some: TaskWhereInput
   tasks_none: TaskWhereInput
-  _MagicalBackRelation_UserToUser_every: UserWhereInput
-  _MagicalBackRelation_UserToUser_some: UserWhereInput
-  _MagicalBackRelation_UserToUser_none: UserWhereInput
+  followers_every: UserWhereInput
+  followers_some: UserWhereInput
+  followers_none: UserWhereInput
+  following_every: UserWhereInput
+  following_some: UserWhereInput
+  following_none: UserWhereInput
+  _MagicalBackRelation_UserFollows_every: UserWhereInput
+  _MagicalBackRelation_UserFollows_some: UserWhereInput
+  _MagicalBackRelation_UserFollows_none: UserWhereInput
+  _MagicalBackRelation_UserFollowing_every: UserWhereInput
+  _MagicalBackRelation_UserFollowing_some: UserWhereInput
+  _MagicalBackRelation_UserFollowing_none: UserWhereInput
+  _MagicalBackRelation_UserPartner_every: UserWhereInput
+  _MagicalBackRelation_UserPartner_some: UserWhereInput
+  _MagicalBackRelation_UserPartner_none: UserWhereInput
 }
 
 input UserWhereUniqueInput {
   id: ID
+  username: String
   email: String
 }
