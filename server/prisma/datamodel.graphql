@@ -6,8 +6,13 @@ type User {
   password: String!
   partner: User!  @relation(name: "UserPartner")
   tasks: [Task!]!
+<<<<<<< HEAD
   followers: [User!]! @relation(name: "UserFollows")
   following: [User!]! @relation(name: "UserFollowing")
+=======
+  # followers: [User!]!
+  # following: [User!]!
+>>>>>>> e5d9ccbfddf97aae06c9f771b221b3b1f916e389
 }
 
 type Task { 
