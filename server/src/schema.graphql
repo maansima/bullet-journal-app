@@ -2,11 +2,13 @@
 
 type Query {
   me: User!
+
 }
 
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
+  createTask(text: String!): Task! 
 }
 
 type AuthPayload {
@@ -18,4 +20,11 @@ type User {
   id: ID!
   email: String!
   name: String!
+  username: String! 
+}
+
+type Task{ 
+  text: String! 
+  author: User! 
+  status: String! 
 }
