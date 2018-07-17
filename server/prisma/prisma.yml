@@ -1,6 +1,9 @@
-endpoint: https://eu1.prisma.sh/bealitonjua9-c63238/bullet-journal-app/dev
+
+endpoint: ${env:PRISMA_ENDPOINT}
+
 datamodel: datamodel.graphql
 
+disableAuth: true
 hooks:
   post-deploy:
     - graphql get-schema -p database

@@ -6,6 +6,7 @@ type User {
   password: String!
   partner: User!  @relation(name: "UserPartner")
   tasks: [Task!]!
+
   followers: [User!]! @relation(name: "UserFollows")
   following: [User!]! @relation(name: "UserFollowing")
 }
