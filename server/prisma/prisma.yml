@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-endpoint: https://eu1.prisma.sh/bealitonjua9-c63238/bullet-journal-app/dev
-=======
 endpoint: ${env:PRISMA_ENDPOINT}
 
->>>>>>> e5d9ccbfddf97aae06c9f771b221b3b1f916e389
 datamodel: datamodel.graphql
 
 disableAuth: true
