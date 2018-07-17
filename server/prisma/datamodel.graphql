@@ -6,6 +6,8 @@ type User {
   password: String!
   partner: User! 
   tasks: [Task!]!
+  # followers: [User!]!
+  # following: [User!]!
 }
 
 type Task { 

@@ -1,6 +1,7 @@
 endpoint: https://eu1.prisma.sh/maansi-manchanda/todo/dev
 datamodel: datamodel.graphql
 
+disableAuth: true
 hooks:
   post-deploy:
     - graphql get-schema -p database
