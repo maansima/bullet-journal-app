@@ -2,8 +2,6 @@
 +import { Mutation } from "react-apollo"
 +import { Link } from "react-router-dom"
 +import gql from "graphql-tag"
-import "./login-page.css"
-
 +
 +const LOGIN = gql`
 +  mutation login($email: String!, $password: String!) {
@@ -36,7 +34,7 @@ import "./login-page.css"
 +  render() {
 +    const token = localStorage.getItem("token")
 +    return (
-<div>
++      <div>
 +
 +        <Mutation mutation={LOGIN}>
 +          {login => {
