@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 # source: https://eu1.prisma.sh/vivianarosas1999-a6aca1/bullet-journal-app/dev
 # timestamp: Tue Jul 17 2018 13:31:03 GMT+0100 (WEST)
-=======
-# source: https://eu1.prisma.sh/maansi-manchanda/todo/dev
-# timestamp: Tue Jul 17 2018 17:36:29 GMT+0100 (WEST)
->>>>>>> 37c2c212792bae6c7badd224c29e5673ec2125b7
 
 type AggregateTask {
   count: Int!
@@ -600,9 +595,33 @@ type User implements Node {
   username: String!
   email: String!
   password: String!
-  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
-  followers(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
-  following(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
+  tasks(
+    where: TaskWhereInput
+    orderBy: TaskOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Task!]
+  followers(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [User!]
+  following(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [User!]
 }
 
 """
