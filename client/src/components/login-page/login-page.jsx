@@ -65,15 +65,15 @@ class LoginPage extends React.Component {
                   }}
                 >
                   <div className="loginheading">
-                    <div>Log in to an existing account.</div>
-                    <div><input
+                    <div className="heading">Log in to an existing account.</div>
+                    <div className="email"><input
                       type="text"
                       className="emailinput"
                       placeholder="email"
                       onChange={e => this.setState({ email: e.target.value })}
                     />
                     </div>
-                    <div className="password"><input
+                    <div className="passWord"><input
                       type="password"
                       className="passwordinput"
                       placeholder="password"
@@ -83,17 +83,17 @@ class LoginPage extends React.Component {
                     /></div>
                     <div><button type="submit" className="loginbutton">
                       submit
-                    </button></div>
+                    </button></div><p/>
                     <Link className="signuplink" to="/signup">
                       Don't have an account? Sign Up!
                     </Link>
-                    {token ? (
+                    {/* {token ? (
             <button onClick={this.onLogout} className="logout">logout</button>
           ) : (
             <Link to="/login" className="login">
               login
             </Link>
-          )}
+          )} */}
                   </div>
                 </form>
               </div>
