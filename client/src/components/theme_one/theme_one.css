@@ -1,0 +1,66 @@
+/* sets the entire background of the page */
+/* html,
+body {
+  background-color: lightcyan;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+/* sets the speicifc div that will hold the input box  */
+.Main-app {
+  background-color: pink;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: left;
+  background-size: cover;
+}
+/* this sets the size of the actual textbox  */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  /* height: 100px;
+  width: 300px; */
+  height: 6em;
+  width: 10em;
+}
+
+/* this is the styling for the button */
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.input-task {
+  resize: vertical;
+  font-size: 14pt;
+}
+
+/* has accountability */
+.sidebar-one {
+  background-color: lightblue;
+  background-size: cover;
+  width: 50vw;
+  height: 40vw;
+}
+
+/* has actual calendar */
+.sidebar-two {
+  background-color: lightgray;
+  background-size: cover;
+  width: 100%;
+}

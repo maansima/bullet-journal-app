@@ -1,15 +1,15 @@
-import * as bcrypt from "bcryptjs";
-import * as jwt from "jsonwebtoken";
-import { Context, getUserId } from "../../utils";
+import * as bcrypt from "bcryptjs"
+import * as jwt from "jsonwebtoken"
+import { Context, getUserId } from "../../utils"
 
 export const task = {
   async createTask(parent, args, ctx: Context, info) {
-    const id = getUserId(ctx);
+    const id = getUserId(ctx)
+
     const task = await ctx.db.mutation.createTask(
       {
         data: {
-          text: args.text, 
-          status: args.status, 
+          text: args.text,
           author: {
             connect: {
               id: id
@@ -18,8 +18,8 @@ export const task = {
         }
       },
       info
-    );
-    return task;
+    )
+    return task
   },
   async follow(parent, args, ctx, info) {
     const id = getUserId(ctx)
@@ -59,6 +59,4 @@ export const task = {
     )
     return updatedUser
   }
-
-
-};
+}
