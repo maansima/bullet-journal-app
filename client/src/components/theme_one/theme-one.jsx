@@ -1,9 +1,11 @@
 import * as React from "react"
 import "./theme_one.css"
+import Feed from "../feed/feed"
 
 class Theme_One extends React.Component {
   render() {
     return (
+
       <div className="main-app">
         <style>
           @import url('https://fonts.googleapis.com/css?family=Muli');
@@ -48,42 +50,10 @@ class Theme_One extends React.Component {
             <p>Some text..</p>
           </div>
         </div>
+        <Feed />
+
       </div>
 
-      // <div className="Main-app">
-      //   MAIN BACKGROUND APP
-      //   {/* this will be white with the bullet and the little input form  */}
-      //   <form className="input-task">
-      //     <style>
-      //       @import url('https://fonts.googleapis.com/css?family=Knewave');
-      //     </style>
-      //     Bullet
-      //     <input type="text" placeholder="enter your new task here!" />
-      //     <button>Create Task</button>
-      //   </form>
-      //   <div className="sidebar-one">Accountability Task</div>
-      //   <div className="sidebar-two">
-      //     Actual Calendar
-      //     <div className="row">
-      //       <div className="column">
-      //         <h2>Column 1</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //       <div className="column">
-      //         <h2>Column 2</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //       <div className="column">
-      //         <h2>Column 3</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //       <div className="column">
-      //         <h2>Column 4</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
     )
   }
 }
