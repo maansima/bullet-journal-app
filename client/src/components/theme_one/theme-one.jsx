@@ -14,6 +14,7 @@ class Theme_One extends React.Component {
           <form className="form">
             <input type="text" placeholder="enter your new task here!" />
           </form>
+          <button className="create-task">Create Task</button>
         </div>
         <div className="grid right">
           <div className="sidebar-one">Accountability Tasks</div>
@@ -26,7 +27,7 @@ class Theme_One extends React.Component {
             <h2>Date One</h2>
             <p>Some text..</p>
             <label htmlFor className="container">
-              Enter your task:
+              Enter your task :
               <input type="checkbox" checked="checked" />
               <span className="checkmark" />
             </label>
