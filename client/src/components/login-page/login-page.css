@@ -1,79 +1,46 @@
-@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url("https://fonts.googleapis.com/css?family=Karla");
 
-.login-form {
-    font-family: 'Karla', sans-serif;
-    background-color: rgb(243, 219, 248);
-}
-
-.email {
-    padding: 30px;
-}
-input[type=text], select {
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    outline: none;
+.login-container {
+  padding: 10px;
+  margin: 50px auto;
+  font-family: "Karla", sans-serif;
+  background-color: rgb(243, 219, 248);
+  width: 500px;
 }
 
-.loginheading {
-    padding: 170px;
-}
-
-.passWord {
-    padding: 10px;
-}
-input[type=password], select {
-    width: 67%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    outline: none;
-}
-
-.padding {
-    padding: 10px;
+input {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
 }
 
 a {
-    color:black;
-    text-decoration:none;
+  color: black;
+  text-decoration: none;
 }
 
 button {
-    display:inline-block;
-    padding:0.35em 1.2em;
-    border:0.1em solid #FFFFFF;
-    margin:0 0.3em 0.3em 0;
-    border-radius:0.12em;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-family:'Roboto',sans-serif;
-    font-weight:300;
-    color:#000;
-    background-color:transparent;
-    text-align:center;
-    transition: all 0.2s;
-    outline: none;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ffffff;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #000;
+  background-color: transparent;
+  text-align: center;
+  transition: all 0.2s;
+  outline: none;
 }
 
 button:hover {
-    color:#000;
-    background-color: #FFFFFF;
-}
-@media all and (max-width:30em) {
-.loginbutton {
-    display:block;
-    margin:0.4em auto;
-}
-}
-
-.signuplink {
-    padding-top: 20px;
+  color: #000;
+  background-color: #ffffff;
 }
