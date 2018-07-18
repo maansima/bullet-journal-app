@@ -11,7 +11,7 @@ export const auth = {
 
     return {
       token: jwt.sign({ userId: user.id }, process.env.APP_SECRET),
-      user
+      user,
     }
   },
 
