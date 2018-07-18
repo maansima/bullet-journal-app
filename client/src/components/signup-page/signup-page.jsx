@@ -31,7 +31,8 @@ class SignUp extends React.Component {
   state = {
     email: "",
     name: "",
-    password: ""
+    password: "",
+    username: ""
   }
 
   render() {
@@ -53,7 +54,8 @@ class SignUp extends React.Component {
                           variables: {
                             email: this.state.email,
                             name: this.state.name,
-                            password: this.state.password
+                            password: this.state.password,
+                            username: this.state.username
                           }
                         })
                         localStorage.setItem("token", data.signup.token)
