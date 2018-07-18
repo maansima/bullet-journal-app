@@ -1,0 +1,216 @@
+* {
+  box-sizing: border-box;
+}
+
+/* sets the entire background of the page */
+html,
+body {
+  /* background-color: lightcyan; */
+  /* background-image: url(./worn_dots.png);
+  background-repeat: repeat; */
+}
+
+/* sets the speicifc div that will hold the input box  */
+.main-app {
+  /* might have to change */
+  text-align: center;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 15px;
+}
+
+.left-arrow {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  float: left;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  align-items: stretch;
+  width: 17%;
+  padding: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  margin: 5px;
+
+  border-radius: 25px;
+  height: 50vh; /* Should be removed. Only for demonstration */
+  background-repeat: repeat;
+  background-image: url(./worn_dots.png);
+  /* background-color: #f4a698; */
+}
+
+/* from here will create the arrows */
+
+.right-arrow {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  float: right;
+}
+
+/* end of arrow creation  */
+
+.form {
+  align-content: left;
+}
+
+h1 {
+  font-family: "Muli", sans-serif;
+  font-size: 4.5em;
+}
+/* this sets the size of the actual textbox  */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  /* height: 100px;
+  width: 300px; */
+  height: 3em;
+  width: 10em;
+}
+
+/* this is the styling for the button */
+.create-task {
+  background-color: #4caf50;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* .input-task {
+} */
+
+/* has accountability */
+/* .sidebar-one {
+} */
+
+/* has actual calendar */
+.sidebar-two {
+  /* display: flex;
+  align-items: center; */
+}
+
+/* is the formatting for the calendar placehodlers */
+/* .title {
+} */
+
+/* this is the one for the overalltask */
+/* .container_for_top {
+  width: 100%;
+  float: left;
+} */
+
+/* this is the one that has task creation  */
+.grid {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  height: 300px;
+}
+.left {
+  width: 60%;
+  border-style: solid;
+  border-width: 2px;
+  border-right: 0px;
+  border-color: black;
+
+  background-repeat: repeat;
+  background-image: url(./worn_dots.png);
+
+  /* background-color: #9cc4b2; */
+}
+
+/* this is the one that has accountability */
+.right {
+  width: 40%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  color: white;
+  background-repeat: repeat;
+  background-image: url(./worn_dots.png);
+
+  /* background-color: #19535f; */
+}
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

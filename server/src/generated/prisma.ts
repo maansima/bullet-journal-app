@@ -4,38 +4,38 @@ import { Options } from 'graphql-binding'
 import { makePrismaBindingClass, BasePrismaOptions } from 'prisma-binding'
 
 export interface Query {
-    tasks: <T = Task[]>(args: { where?: TaskWhereInput, orderBy?: TaskOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     users: <T = User[]>(args: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    task: <T = Task | null>(args: { where: TaskWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    tasks: <T = Task[]>(args: { where?: TaskWhereInput, orderBy?: TaskOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     user: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    tasksConnection: <T = TaskConnection>(args: { where?: TaskWhereInput, orderBy?: TaskOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    task: <T = Task | null>(args: { where: TaskWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     usersConnection: <T = UserConnection>(args: { where?: UserWhereInput, orderBy?: UserOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    tasksConnection: <T = TaskConnection>(args: { where?: TaskWhereInput, orderBy?: TaskOrderByInput, skip?: Int, after?: String, before?: String, first?: Int, last?: Int }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     node: <T = Node | null>(args: { id: ID_Output }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
   }
 
 export interface Mutation {
-    createTask: <T = Task>(args: { data: TaskCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     createUser: <T = User>(args: { data: UserCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateTask: <T = Task | null>(args: { data: TaskUpdateInput, where: TaskWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    createTask: <T = Task>(args: { data: TaskCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateUser: <T = User | null>(args: { data: UserUpdateInput, where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteTask: <T = Task | null>(args: { where: TaskWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    updateTask: <T = Task | null>(args: { data: TaskUpdateInput, where: TaskWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     deleteUser: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    upsertTask: <T = Task>(args: { where: TaskWhereUniqueInput, create: TaskCreateInput, update: TaskUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    deleteTask: <T = Task | null>(args: { where: TaskWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     upsertUser: <T = User>(args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyTasks: <T = BatchPayload>(args: { data: TaskUpdateInput, where?: TaskWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    upsertTask: <T = Task>(args: { where: TaskWhereUniqueInput, create: TaskCreateInput, update: TaskUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
     updateManyUsers: <T = BatchPayload>(args: { data: UserUpdateInput, where?: UserWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyTasks: <T = BatchPayload>(args: { where?: TaskWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyUsers: <T = BatchPayload>(args: { where?: UserWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
+    updateManyTasks: <T = BatchPayload>(args: { data: TaskUpdateInput, where?: TaskWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    deleteManyUsers: <T = BatchPayload>(args: { where?: UserWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
+    deleteManyTasks: <T = BatchPayload>(args: { where?: TaskWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
   }
 
 export interface Subscription {
-    task: <T = TaskSubscriptionPayload | null>(args: { where?: TaskSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
-    user: <T = UserSubscriptionPayload | null>(args: { where?: UserSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> 
+    user: <T = UserSubscriptionPayload | null>(args: { where?: UserSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> ,
+    task: <T = TaskSubscriptionPayload | null>(args: { where?: TaskSubscriptionWhereInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T>> 
   }
 
 export interface Exists {
-  Task: (where?: TaskWhereInput) => Promise<boolean>
   User: (where?: UserWhereInput) => Promise<boolean>
+  Task: (where?: TaskWhereInput) => Promise<boolean>
 }
 
 export interface Prisma {
@@ -82,18 +82,18 @@ Long can represent values between -(2^63) and 2^63 - 1.
 scalar Long
 
 type Mutation {
-  createTask(data: TaskCreateInput!): Task!
   createUser(data: UserCreateInput!): User!
-  updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
+  createTask(data: TaskCreateInput!): Task!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  deleteTask(where: TaskWhereUniqueInput!): Task
+  updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
   deleteUser(where: UserWhereUniqueInput!): User
-  upsertTask(where: TaskWhereUniqueInput!, create: TaskCreateInput!, update: TaskUpdateInput!): Task!
+  deleteTask(where: TaskWhereUniqueInput!): Task
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  updateManyTasks(data: TaskUpdateInput!, where: TaskWhereInput): BatchPayload!
+  upsertTask(where: TaskWhereUniqueInput!, create: TaskCreateInput!, update: TaskUpdateInput!): Task!
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
-  deleteManyTasks(where: TaskWhereInput): BatchPayload!
+  updateManyTasks(data: TaskUpdateInput!, where: TaskWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteManyTasks(where: TaskWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -124,12 +124,12 @@ type PageInfo {
 }
 
 type Query {
-  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task]!
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  task(where: TaskWhereUniqueInput!): Task
+  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task]!
   user(where: UserWhereUniqueInput!): User
-  tasksConnection(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TaskConnection!
+  task(where: TaskWhereUniqueInput!): Task
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  tasksConnection(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TaskConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -139,8 +139,8 @@ type Query {
 }
 
 type Subscription {
-  task(where: TaskSubscriptionWhereInput): TaskSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  task(where: TaskSubscriptionWhereInput): TaskSubscriptionPayload
 }
 
 type Task implements Node {
@@ -149,7 +149,6 @@ type Task implements Node {
   author(where: UserWhereInput): User!
   createdAt: DateTime!
   updatedAt: DateTime!
-  status: String!
 }
 
 """A connection to a list of items."""
@@ -164,7 +163,6 @@ type TaskConnection {
 
 input TaskCreateInput {
   text: String!
-  status: String!
   author: UserCreateOneWithoutTasksInput!
 }
 
@@ -175,7 +173,6 @@ input TaskCreateManyWithoutAuthorInput {
 
 input TaskCreateWithoutAuthorInput {
   text: String!
-  status: String!
 }
 
 """An edge in a connection."""
@@ -196,8 +193,6 @@ enum TaskOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
-  status_ASC
-  status_DESC
 }
 
 type TaskPreviousValues {
@@ -205,7 +200,6 @@ type TaskPreviousValues {
   text: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  status: String!
 }
 
 type TaskSubscriptionPayload {
@@ -249,7 +243,6 @@ input TaskSubscriptionWhereInput {
 
 input TaskUpdateInput {
   text: String
-  status: String
   author: UserUpdateOneWithoutTasksInput
 }
 
@@ -264,7 +257,6 @@ input TaskUpdateManyWithoutAuthorInput {
 
 input TaskUpdateWithoutAuthorDataInput {
   text: String
-  status: String
 }
 
 input TaskUpdateWithWhereUniqueWithoutAuthorInput {
@@ -411,46 +403,6 @@ input TaskWhereInput {
 
   """All values greater than or equal the given value."""
   updatedAt_gte: DateTime
-  status: String
-
-  """All values that are not equal to given value."""
-  status_not: String
-
-  """All values that are contained in given list."""
-  status_in: [String!]
-
-  """All values that are not contained in given list."""
-  status_not_in: [String!]
-
-  """All values less than the given value."""
-  status_lt: String
-
-  """All values less than or equal the given value."""
-  status_lte: String
-
-  """All values greater than the given value."""
-  status_gt: String
-
-  """All values greater than or equal the given value."""
-  status_gte: String
-
-  """All values containing the given string."""
-  status_contains: String
-
-  """All values not containing the given string."""
-  status_not_contains: String
-
-  """All values starting with the given string."""
-  status_starts_with: String
-
-  """All values not starting with the given string."""
-  status_not_starts_with: String
-
-  """All values ending with the given string."""
-  status_ends_with: String
-
-  """All values not ending with the given string."""
-  status_not_ends_with: String
   author: UserWhereInput
 }
 
@@ -464,10 +416,7 @@ type User implements Node {
   username: String!
   email: String!
   password: String!
-  partner(where: UserWhereInput): User!
   tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
-  followers(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
-  following(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
 }
 
 """A connection to a list of items."""
@@ -485,20 +434,7 @@ input UserCreateInput {
   username: String!
   email: String!
   password: String!
-  partner: UserCreateOneInput!
   tasks: TaskCreateManyWithoutAuthorInput
-  followers: UserCreateManyInput
-  following: UserCreateManyInput
-}
-
-input UserCreateManyInput {
-  create: [UserCreateInput!]
-  connect: [UserWhereUniqueInput!]
-}
-
-input UserCreateOneInput {
-  create: UserCreateInput
-  connect: UserWhereUniqueInput
 }
 
 input UserCreateOneWithoutTasksInput {
@@ -511,9 +447,6 @@ input UserCreateWithoutTasksInput {
   username: String!
   email: String!
   password: String!
-  partner: UserCreateOneInput!
-  followers: UserCreateManyInput
-  following: UserCreateManyInput
 }
 
 """An edge in a connection."""
@@ -589,43 +522,12 @@ input UserSubscriptionWhereInput {
   node: UserWhereInput
 }
 
-input UserUpdateDataInput {
-  name: String
-  username: String
-  email: String
-  password: String
-  partner: UserUpdateOneInput
-  tasks: TaskUpdateManyWithoutAuthorInput
-  followers: UserUpdateManyInput
-  following: UserUpdateManyInput
-}
-
 input UserUpdateInput {
   name: String
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
   tasks: TaskUpdateManyWithoutAuthorInput
-  followers: UserUpdateManyInput
-  following: UserUpdateManyInput
-}
-
-input UserUpdateManyInput {
-  create: [UserCreateInput!]
-  connect: [UserWhereUniqueInput!]
-  disconnect: [UserWhereUniqueInput!]
-  delete: [UserWhereUniqueInput!]
-  update: [UserUpdateWithWhereUniqueNestedInput!]
-  upsert: [UserUpsertWithWhereUniqueNestedInput!]
-}
-
-input UserUpdateOneInput {
-  create: UserCreateInput
-  connect: UserWhereUniqueInput
-  delete: Boolean
-  update: UserUpdateDataInput
-  upsert: UserUpsertNestedInput
 }
 
 input UserUpdateOneWithoutTasksInput {
@@ -641,30 +543,11 @@ input UserUpdateWithoutTasksDataInput {
   username: String
   email: String
   password: String
-  partner: UserUpdateOneInput
-  followers: UserUpdateManyInput
-  following: UserUpdateManyInput
-}
-
-input UserUpdateWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput!
-  data: UserUpdateDataInput!
-}
-
-input UserUpsertNestedInput {
-  update: UserUpdateDataInput!
-  create: UserCreateInput!
 }
 
 input UserUpsertWithoutTasksInput {
   update: UserUpdateWithoutTasksDataInput!
   create: UserCreateWithoutTasksInput!
-}
-
-input UserUpsertWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput!
-  update: UserUpdateDataInput!
-  create: UserCreateInput!
 }
 
 input UserWhereInput {
@@ -876,25 +759,9 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
-  partner: UserWhereInput
   tasks_every: TaskWhereInput
   tasks_some: TaskWhereInput
   tasks_none: TaskWhereInput
-  followers_every: UserWhereInput
-  followers_some: UserWhereInput
-  followers_none: UserWhereInput
-  following_every: UserWhereInput
-  following_some: UserWhereInput
-  following_none: UserWhereInput
-  _MagicalBackRelation_UserFollows_every: UserWhereInput
-  _MagicalBackRelation_UserFollows_some: UserWhereInput
-  _MagicalBackRelation_UserFollows_none: UserWhereInput
-  _MagicalBackRelation_UserFollowing_every: UserWhereInput
-  _MagicalBackRelation_UserFollowing_some: UserWhereInput
-  _MagicalBackRelation_UserFollowing_none: UserWhereInput
-  _MagicalBackRelation_UserPartner_every: UserWhereInput
-  _MagicalBackRelation_UserPartner_some: UserWhereInput
-  _MagicalBackRelation_UserPartner_none: UserWhereInput
 }
 
 input UserWhereUniqueInput {
@@ -909,17 +776,6 @@ export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({typeDe
 /**
  * Types
 */
-
-export type TaskOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'text_ASC' |
-  'text_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'status_ASC' |
-  'status_DESC'
 
 export type UserOrderByInput =   'id_ASC' |
   'id_DESC' |
@@ -936,6 +792,15 @@ export type UserOrderByInput =   'id_ASC' |
   'createdAt_ASC' |
   'createdAt_DESC'
 
+export type TaskOrderByInput =   'id_ASC' |
+  'id_DESC' |
+  'text_ASC' |
+  'text_DESC' |
+  'createdAt_ASC' |
+  'createdAt_DESC' |
+  'updatedAt_ASC' |
+  'updatedAt_DESC'
+
 export type MutationType =   'CREATED' |
   'UPDATED' |
   'DELETED'
@@ -943,77 +808,6 @@ export type MutationType =   'CREATED' |
 export interface TaskCreateManyWithoutAuthorInput {
   create?: TaskCreateWithoutAuthorInput[] | TaskCreateWithoutAuthorInput
   connect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
-}
-
-export interface TaskWhereInput {
-  AND?: TaskWhereInput[] | TaskWhereInput
-  OR?: TaskWhereInput[] | TaskWhereInput
-  NOT?: TaskWhereInput[] | TaskWhereInput
-  id?: ID_Input
-  id_not?: ID_Input
-  id_in?: ID_Input[] | ID_Input
-  id_not_in?: ID_Input[] | ID_Input
-  id_lt?: ID_Input
-  id_lte?: ID_Input
-  id_gt?: ID_Input
-  id_gte?: ID_Input
-  id_contains?: ID_Input
-  id_not_contains?: ID_Input
-  id_starts_with?: ID_Input
-  id_not_starts_with?: ID_Input
-  id_ends_with?: ID_Input
-  id_not_ends_with?: ID_Input
-  text?: String
-  text_not?: String
-  text_in?: String[] | String
-  text_not_in?: String[] | String
-  text_lt?: String
-  text_lte?: String
-  text_gt?: String
-  text_gte?: String
-  text_contains?: String
-  text_not_contains?: String
-  text_starts_with?: String
-  text_not_starts_with?: String
-  text_ends_with?: String
-  text_not_ends_with?: String
-  createdAt?: DateTime
-  createdAt_not?: DateTime
-  createdAt_in?: DateTime[] | DateTime
-  createdAt_not_in?: DateTime[] | DateTime
-  createdAt_lt?: DateTime
-  createdAt_lte?: DateTime
-  createdAt_gt?: DateTime
-  createdAt_gte?: DateTime
-  updatedAt?: DateTime
-  updatedAt_not?: DateTime
-  updatedAt_in?: DateTime[] | DateTime
-  updatedAt_not_in?: DateTime[] | DateTime
-  updatedAt_lt?: DateTime
-  updatedAt_lte?: DateTime
-  updatedAt_gt?: DateTime
-  updatedAt_gte?: DateTime
-  status?: String
-  status_not?: String
-  status_in?: String[] | String
-  status_not_in?: String[] | String
-  status_lt?: String
-  status_lte?: String
-  status_gt?: String
-  status_gte?: String
-  status_contains?: String
-  status_not_contains?: String
-  status_starts_with?: String
-  status_not_starts_with?: String
-  status_ends_with?: String
-  status_not_ends_with?: String
-  author?: UserWhereInput
-}
-
-export interface TaskUpdateInput {
-  text?: String
-  status?: String
-  author?: UserUpdateOneWithoutTasksInput
 }
 
 export interface UserWhereInput {
@@ -1090,55 +884,14 @@ export interface UserWhereInput {
   password_not_starts_with?: String
   password_ends_with?: String
   password_not_ends_with?: String
-  partner?: UserWhereInput
   tasks_every?: TaskWhereInput
   tasks_some?: TaskWhereInput
   tasks_none?: TaskWhereInput
-  followers_every?: UserWhereInput
-  followers_some?: UserWhereInput
-  followers_none?: UserWhereInput
-  following_every?: UserWhereInput
-  following_some?: UserWhereInput
-  following_none?: UserWhereInput
-  _MagicalBackRelation_UserFollows_every?: UserWhereInput
-  _MagicalBackRelation_UserFollows_some?: UserWhereInput
-  _MagicalBackRelation_UserFollows_none?: UserWhereInput
-  _MagicalBackRelation_UserFollowing_every?: UserWhereInput
-  _MagicalBackRelation_UserFollowing_some?: UserWhereInput
-  _MagicalBackRelation_UserFollowing_none?: UserWhereInput
-  _MagicalBackRelation_UserPartner_every?: UserWhereInput
-  _MagicalBackRelation_UserPartner_some?: UserWhereInput
-  _MagicalBackRelation_UserPartner_none?: UserWhereInput
 }
 
-export interface TaskCreateInput {
-  text: String
-  status: String
-  author: UserCreateOneWithoutTasksInput
-}
-
-export interface UserUpdateDataInput {
-  name?: String
-  username?: String
-  email?: String
-  password?: String
-  partner?: UserUpdateOneInput
-  tasks?: TaskUpdateManyWithoutAuthorInput
-  followers?: UserUpdateManyInput
-  following?: UserUpdateManyInput
-}
-
-export interface UserCreateOneWithoutTasksInput {
-  create?: UserCreateWithoutTasksInput
-  connect?: UserWhereUniqueInput
-}
-
-export interface UserUpdateOneWithoutTasksInput {
-  create?: UserCreateWithoutTasksInput
-  connect?: UserWhereUniqueInput
-  delete?: Boolean
-  update?: UserUpdateWithoutTasksDataInput
-  upsert?: UserUpsertWithoutTasksInput
+export interface TaskUpdateInput {
+  text?: String
+  author?: UserUpdateOneWithoutTasksInput
 }
 
 export interface UserCreateWithoutTasksInput {
@@ -1146,124 +899,21 @@ export interface UserCreateWithoutTasksInput {
   username: String
   email: String
   password: String
-  partner: UserCreateOneInput
-  followers?: UserCreateManyInput
-  following?: UserCreateManyInput
 }
 
-export interface TaskSubscriptionWhereInput {
-  AND?: TaskSubscriptionWhereInput[] | TaskSubscriptionWhereInput
-  OR?: TaskSubscriptionWhereInput[] | TaskSubscriptionWhereInput
-  NOT?: TaskSubscriptionWhereInput[] | TaskSubscriptionWhereInput
-  mutation_in?: MutationType[] | MutationType
-  updatedFields_contains?: String
-  updatedFields_contains_every?: String[] | String
-  updatedFields_contains_some?: String[] | String
-  node?: TaskWhereInput
-}
-
-export interface UserCreateOneInput {
-  create?: UserCreateInput
-  connect?: UserWhereUniqueInput
-}
-
-export interface UserWhereUniqueInput {
-  id?: ID_Input
-  username?: String
-  email?: String
-}
-
-export interface UserCreateInput {
-  name: String
-  username: String
-  email: String
-  password: String
-  partner: UserCreateOneInput
-  tasks?: TaskCreateManyWithoutAuthorInput
-  followers?: UserCreateManyInput
-  following?: UserCreateManyInput
-}
-
-export interface UserUpsertWithoutTasksInput {
-  update: UserUpdateWithoutTasksDataInput
-  create: UserCreateWithoutTasksInput
-}
-
-export interface TaskUpdateWithWhereUniqueWithoutAuthorInput {
+export interface TaskUpsertWithWhereUniqueWithoutAuthorInput {
   where: TaskWhereUniqueInput
-  data: TaskUpdateWithoutAuthorDataInput
+  update: TaskUpdateWithoutAuthorDataInput
+  create: TaskCreateWithoutAuthorInput
 }
 
-export interface UserUpsertWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput
-  update: UserUpdateDataInput
-  create: UserCreateInput
-}
-
-export interface TaskCreateWithoutAuthorInput {
-  text: String
-  status: String
-}
-
-export interface UserUpdateManyInput {
-  create?: UserCreateInput[] | UserCreateInput
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput
-  disconnect?: UserWhereUniqueInput[] | UserWhereUniqueInput
-  delete?: UserWhereUniqueInput[] | UserWhereUniqueInput
-  update?: UserUpdateWithWhereUniqueNestedInput[] | UserUpdateWithWhereUniqueNestedInput
-  upsert?: UserUpsertWithWhereUniqueNestedInput[] | UserUpsertWithWhereUniqueNestedInput
-}
-
-export interface UserCreateManyInput {
-  create?: UserCreateInput[] | UserCreateInput
-  connect?: UserWhereUniqueInput[] | UserWhereUniqueInput
+export interface UserCreateOneWithoutTasksInput {
+  create?: UserCreateWithoutTasksInput
+  connect?: UserWhereUniqueInput
 }
 
 export interface TaskUpdateWithoutAuthorDataInput {
   text?: String
-  status?: String
-}
-
-export interface TaskWhereUniqueInput {
-  id?: ID_Input
-}
-
-export interface UserUpdateOneInput {
-  create?: UserCreateInput
-  connect?: UserWhereUniqueInput
-  delete?: Boolean
-  update?: UserUpdateDataInput
-  upsert?: UserUpsertNestedInput
-}
-
-export interface UserUpdateWithoutTasksDataInput {
-  name?: String
-  username?: String
-  email?: String
-  password?: String
-  partner?: UserUpdateOneInput
-  followers?: UserUpdateManyInput
-  following?: UserUpdateManyInput
-}
-
-export interface TaskUpdateManyWithoutAuthorInput {
-  create?: TaskCreateWithoutAuthorInput[] | TaskCreateWithoutAuthorInput
-  connect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
-  disconnect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
-  delete?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
-  update?: TaskUpdateWithWhereUniqueWithoutAuthorInput[] | TaskUpdateWithWhereUniqueWithoutAuthorInput
-  upsert?: TaskUpsertWithWhereUniqueWithoutAuthorInput[] | TaskUpsertWithWhereUniqueWithoutAuthorInput
-}
-
-export interface UserUpdateInput {
-  name?: String
-  username?: String
-  email?: String
-  password?: String
-  partner?: UserUpdateOneInput
-  tasks?: TaskUpdateManyWithoutAuthorInput
-  followers?: UserUpdateManyInput
-  following?: UserUpdateManyInput
 }
 
 export interface UserSubscriptionWhereInput {
@@ -1277,20 +927,135 @@ export interface UserSubscriptionWhereInput {
   node?: UserWhereInput
 }
 
-export interface TaskUpsertWithWhereUniqueWithoutAuthorInput {
+export interface TaskUpdateWithWhereUniqueWithoutAuthorInput {
   where: TaskWhereUniqueInput
-  update: TaskUpdateWithoutAuthorDataInput
-  create: TaskCreateWithoutAuthorInput
+  data: TaskUpdateWithoutAuthorDataInput
 }
 
-export interface UserUpdateWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput
-  data: UserUpdateDataInput
+export interface TaskWhereUniqueInput {
+  id?: ID_Input
 }
 
-export interface UserUpsertNestedInput {
-  update: UserUpdateDataInput
-  create: UserCreateInput
+export interface TaskUpdateManyWithoutAuthorInput {
+  create?: TaskCreateWithoutAuthorInput[] | TaskCreateWithoutAuthorInput
+  connect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
+  disconnect?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
+  delete?: TaskWhereUniqueInput[] | TaskWhereUniqueInput
+  update?: TaskUpdateWithWhereUniqueWithoutAuthorInput[] | TaskUpdateWithWhereUniqueWithoutAuthorInput
+  upsert?: TaskUpsertWithWhereUniqueWithoutAuthorInput[] | TaskUpsertWithWhereUniqueWithoutAuthorInput
+}
+
+export interface UserUpdateWithoutTasksDataInput {
+  name?: String
+  username?: String
+  email?: String
+  password?: String
+}
+
+export interface TaskCreateInput {
+  text: String
+  author: UserCreateOneWithoutTasksInput
+}
+
+export interface TaskCreateWithoutAuthorInput {
+  text: String
+}
+
+export interface UserUpdateInput {
+  name?: String
+  username?: String
+  email?: String
+  password?: String
+  tasks?: TaskUpdateManyWithoutAuthorInput
+}
+
+export interface UserCreateInput {
+  name: String
+  username: String
+  email: String
+  password: String
+  tasks?: TaskCreateManyWithoutAuthorInput
+}
+
+export interface UserUpdateOneWithoutTasksInput {
+  create?: UserCreateWithoutTasksInput
+  connect?: UserWhereUniqueInput
+  delete?: Boolean
+  update?: UserUpdateWithoutTasksDataInput
+  upsert?: UserUpsertWithoutTasksInput
+}
+
+export interface UserUpsertWithoutTasksInput {
+  update: UserUpdateWithoutTasksDataInput
+  create: UserCreateWithoutTasksInput
+}
+
+export interface UserWhereUniqueInput {
+  id?: ID_Input
+  username?: String
+  email?: String
+}
+
+export interface TaskWhereInput {
+  AND?: TaskWhereInput[] | TaskWhereInput
+  OR?: TaskWhereInput[] | TaskWhereInput
+  NOT?: TaskWhereInput[] | TaskWhereInput
+  id?: ID_Input
+  id_not?: ID_Input
+  id_in?: ID_Input[] | ID_Input
+  id_not_in?: ID_Input[] | ID_Input
+  id_lt?: ID_Input
+  id_lte?: ID_Input
+  id_gt?: ID_Input
+  id_gte?: ID_Input
+  id_contains?: ID_Input
+  id_not_contains?: ID_Input
+  id_starts_with?: ID_Input
+  id_not_starts_with?: ID_Input
+  id_ends_with?: ID_Input
+  id_not_ends_with?: ID_Input
+  text?: String
+  text_not?: String
+  text_in?: String[] | String
+  text_not_in?: String[] | String
+  text_lt?: String
+  text_lte?: String
+  text_gt?: String
+  text_gte?: String
+  text_contains?: String
+  text_not_contains?: String
+  text_starts_with?: String
+  text_not_starts_with?: String
+  text_ends_with?: String
+  text_not_ends_with?: String
+  createdAt?: DateTime
+  createdAt_not?: DateTime
+  createdAt_in?: DateTime[] | DateTime
+  createdAt_not_in?: DateTime[] | DateTime
+  createdAt_lt?: DateTime
+  createdAt_lte?: DateTime
+  createdAt_gt?: DateTime
+  createdAt_gte?: DateTime
+  updatedAt?: DateTime
+  updatedAt_not?: DateTime
+  updatedAt_in?: DateTime[] | DateTime
+  updatedAt_not_in?: DateTime[] | DateTime
+  updatedAt_lt?: DateTime
+  updatedAt_lte?: DateTime
+  updatedAt_gt?: DateTime
+  updatedAt_gte?: DateTime
+  author?: UserWhereInput
+}
+
+export interface TaskSubscriptionWhereInput {
+  AND?: TaskSubscriptionWhereInput[] | TaskSubscriptionWhereInput
+  OR?: TaskSubscriptionWhereInput[] | TaskSubscriptionWhereInput
+  NOT?: TaskSubscriptionWhereInput[] | TaskSubscriptionWhereInput
+  mutation_in?: MutationType[] | MutationType
+  updatedFields_contains?: String
+  updatedFields_contains_every?: String[] | String
+  updatedFields_contains_some?: String[] | String
+  node?: TaskWhereInput
 }
 
 /*
@@ -1301,12 +1066,84 @@ export interface Node {
   id: ID_Output
 }
 
+export interface TaskPreviousValues {
+  id: ID_Output
+  text: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+export interface TaskSubscriptionPayload {
+  mutation: MutationType
+  node?: Task
+  updatedFields?: String[]
+  previousValues?: TaskPreviousValues
+}
+
+export interface UserSubscriptionPayload {
+  mutation: MutationType
+  node?: User
+  updatedFields?: String[]
+  previousValues?: UserPreviousValues
+}
+
+/*
+ * Information about pagination in a connection.
+
+ */
+export interface PageInfo {
+  hasNextPage: Boolean
+  hasPreviousPage: Boolean
+  startCursor?: String
+  endCursor?: String
+}
+
+/*
+ * A connection to a list of items.
+
+ */
+export interface UserConnection {
+  pageInfo: PageInfo
+  edges: UserEdge[]
+  aggregate: AggregateUser
+}
+
+/*
+ * An edge in a connection.
+
+ */
+export interface TaskEdge {
+  node: Task
+  cursor: String
+}
+
+export interface Task extends Node {
+  id: ID_Output
+  text: String
+  author: User
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
 export interface UserPreviousValues {
   id: ID_Output
   name: String
   username: String
   email: String
   password: String
+}
+
+export interface BatchPayload {
+  count: Long
+}
+
+export interface User extends Node {
+  id: ID_Output
+  name: String
+  username: String
+  email: String
+  password: String
+  tasks?: Task[]
 }
 
 /*
@@ -1317,38 +1154,6 @@ export interface TaskConnection {
   pageInfo: PageInfo
   edges: TaskEdge[]
   aggregate: AggregateTask
-}
-
-export interface Task extends Node {
-  id: ID_Output
-  text: String
-  author: User
-  createdAt: DateTime
-  updatedAt: DateTime
-  status: String
-}
-
-export interface BatchPayload {
-  count: Long
-}
-
-export interface AggregateUser {
-  count: Int
-}
-
-export interface TaskSubscriptionPayload {
-  mutation: MutationType
-  node?: Task
-  updatedFields?: String[]
-  previousValues?: TaskPreviousValues
-}
-
-export interface TaskPreviousValues {
-  id: ID_Output
-  text: String
-  createdAt: DateTime
-  updatedAt: DateTime
-  status: String
 }
 
 export interface AggregateTask {
@@ -1364,60 +1169,11 @@ export interface UserEdge {
   cursor: String
 }
 
-export interface User extends Node {
-  id: ID_Output
-  name: String
-  username: String
-  email: String
-  password: String
-  partner: User
-  tasks?: Task[]
-  followers?: User[]
-  following?: User[]
+export interface AggregateUser {
+  count: Int
 }
 
-/*
- * Information about pagination in a connection.
-
- */
-export interface PageInfo {
-  hasNextPage: Boolean
-  hasPreviousPage: Boolean
-  startCursor?: String
-  endCursor?: String
-}
-
-export interface UserSubscriptionPayload {
-  mutation: MutationType
-  node?: User
-  updatedFields?: String[]
-  previousValues?: UserPreviousValues
-}
-
-/*
- * An edge in a connection.
-
- */
-export interface TaskEdge {
-  node: Task
-  cursor: String
-}
-
-/*
- * A connection to a list of items.
-
- */
-export interface UserConnection {
-  pageInfo: PageInfo
-  edges: UserEdge[]
-  aggregate: AggregateUser
-}
-
-/*
-The `Long` scalar type represents non-fractional signed whole numeric values.
-Long can represent values between -(2^63) and 2^63 - 1.
-*/
-export type Long = string
+export type DateTime = Date | string
 
 /*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
@@ -1435,7 +1191,11 @@ The `ID` scalar type represents a unique identifier, often used to refetch an ob
 export type ID_Input = string | number
 export type ID_Output = string
 
-export type DateTime = Date | string
+/*
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+*/
+export type Long = string
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.

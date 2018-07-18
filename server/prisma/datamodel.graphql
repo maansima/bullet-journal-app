@@ -4,18 +4,17 @@ type User {
   username: String! @unique
   email: String! @unique
   password: String!
-  partner: User!  @relation(name: "UserPartner")
+  # partner: User! @relation(name: "UserPartner")
   tasks: [Task!]!
-
-  followers: [User!]! @relation(name: "UserFollows")
-  following: [User!]! @relation(name: "UserFollowing")
+  # followers: [User!]! @relation(name: "UserFollows")
+  # following: [User!]! @relation(name: "UserFollowing")
 }
 
-type Task { 
+type Task {
   id: ID! @unique
-  text: String! 
+  text: String!
   author: User!
   createdAt: DateTime!
-  updatedAt: DateTime! 
-  status: String! 
+  updatedAt: DateTime!
+  
 }
