@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./theme_one.css"
+import Feed from "../feed/feed"
 
 class Theme_One extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class Theme_One extends React.Component {
           Bullet
           <input type="text" placeholder="enter your new task here!" />
           <button>Create Task</button>
+          <Feed />
         </form>
         <div className="sidebar-one">Accountability Task</div>
         <div className="sidebar-two">Actual Calendar</div>

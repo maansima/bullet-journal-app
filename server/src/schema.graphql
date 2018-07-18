@@ -31,7 +31,8 @@ type User {
 }
 
 type Task {
+  createdAt: String!
+  updatedAt: String!
   text: String!
   author: User!
-  status: String!
 }
