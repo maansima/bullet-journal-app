@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/maansi-manchanda/todo/dev
-# timestamp: Tue Jul 17 2018 17:36:29 GMT+0100 (WEST)
+# timestamp: Wed Jul 18 2018 16:09:22 GMT+0100 (WEST)
 
 type AggregateTask {
   count: Int!
@@ -23,18 +23,18 @@ Long can represent values between -(2^63) and 2^63 - 1.
 scalar Long
 
 type Mutation {
-  createTask(data: TaskCreateInput!): Task!
   createUser(data: UserCreateInput!): User!
-  updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
+  createTask(data: TaskCreateInput!): Task!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  deleteTask(where: TaskWhereUniqueInput!): Task
+  updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
   deleteUser(where: UserWhereUniqueInput!): User
-  upsertTask(where: TaskWhereUniqueInput!, create: TaskCreateInput!, update: TaskUpdateInput!): Task!
+  deleteTask(where: TaskWhereUniqueInput!): Task
   upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  updateManyTasks(data: TaskUpdateInput!, where: TaskWhereInput): BatchPayload!
+  upsertTask(where: TaskWhereUniqueInput!, create: TaskCreateInput!, update: TaskUpdateInput!): Task!
   updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
-  deleteManyTasks(where: TaskWhereInput): BatchPayload!
+  updateManyTasks(data: TaskUpdateInput!, where: TaskWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deleteManyTasks(where: TaskWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -65,12 +65,12 @@ type PageInfo {
 }
 
 type Query {
-  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task]!
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  task(where: TaskWhereUniqueInput!): Task
+  tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task]!
   user(where: UserWhereUniqueInput!): User
-  tasksConnection(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TaskConnection!
+  task(where: TaskWhereUniqueInput!): Task
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  tasksConnection(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TaskConnection!
 
   """Fetches an object given its ID"""
   node(
@@ -80,8 +80,8 @@ type Query {
 }
 
 type Subscription {
-  task(where: TaskSubscriptionWhereInput): TaskSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+  task(where: TaskSubscriptionWhereInput): TaskSubscriptionPayload
 }
 
 type Task implements Node {
@@ -90,7 +90,6 @@ type Task implements Node {
   author(where: UserWhereInput): User!
   createdAt: DateTime!
   updatedAt: DateTime!
-  status: String!
 }
 
 """A connection to a list of items."""
@@ -105,7 +104,6 @@ type TaskConnection {
 
 input TaskCreateInput {
   text: String!
-  status: String!
   author: UserCreateOneWithoutTasksInput!
 }
 
@@ -116,7 +114,6 @@ input TaskCreateManyWithoutAuthorInput {
 
 input TaskCreateWithoutAuthorInput {
   text: String!
-  status: String!
 }
 
 """An edge in a connection."""
@@ -137,8 +134,6 @@ enum TaskOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
-  status_ASC
-  status_DESC
 }
 
 type TaskPreviousValues {
@@ -146,7 +141,6 @@ type TaskPreviousValues {
   text: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  status: String!
 }
 
 type TaskSubscriptionPayload {
@@ -190,7 +184,6 @@ input TaskSubscriptionWhereInput {
 
 input TaskUpdateInput {
   text: String
-  status: String
   author: UserUpdateOneWithoutTasksInput
 }
 
@@ -205,7 +198,6 @@ input TaskUpdateManyWithoutAuthorInput {
 
 input TaskUpdateWithoutAuthorDataInput {
   text: String
-  status: String
 }
 
 input TaskUpdateWithWhereUniqueWithoutAuthorInput {
@@ -352,46 +344,6 @@ input TaskWhereInput {
 
   """All values greater than or equal the given value."""
   updatedAt_gte: DateTime
-  status: String
-
-  """All values that are not equal to given value."""
-  status_not: String
-
-  """All values that are contained in given list."""
-  status_in: [String!]
-
-  """All values that are not contained in given list."""
-  status_not_in: [String!]
-
-  """All values less than the given value."""
-  status_lt: String
-
-  """All values less than or equal the given value."""
-  status_lte: String
-
-  """All values greater than the given value."""
-  status_gt: String
-
-  """All values greater than or equal the given value."""
-  status_gte: String
-
-  """All values containing the given string."""
-  status_contains: String
-
-  """All values not containing the given string."""
-  status_not_contains: String
-
-  """All values starting with the given string."""
-  status_starts_with: String
-
-  """All values not starting with the given string."""
-  status_not_starts_with: String
-
-  """All values ending with the given string."""
-  status_ends_with: String
-
-  """All values not ending with the given string."""
-  status_not_ends_with: String
   author: UserWhereInput
 }
 
@@ -406,8 +358,6 @@ type User implements Node {
   email: String!
   password: String!
   tasks(where: TaskWhereInput, orderBy: TaskOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Task!]
-  followers(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
-  following(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
 }
 
 """A connection to a list of items."""
@@ -426,13 +376,6 @@ input UserCreateInput {
   email: String!
   password: String!
   tasks: TaskCreateManyWithoutAuthorInput
-  followers: UserCreateManyInput
-  following: UserCreateManyInput
-}
-
-input UserCreateManyInput {
-  create: [UserCreateInput!]
-  connect: [UserWhereUniqueInput!]
 }
 
 input UserCreateOneWithoutTasksInput {
@@ -445,8 +388,6 @@ input UserCreateWithoutTasksInput {
   username: String!
   email: String!
   password: String!
-  followers: UserCreateManyInput
-  following: UserCreateManyInput
 }
 
 """An edge in a connection."""
@@ -522,33 +463,12 @@ input UserSubscriptionWhereInput {
   node: UserWhereInput
 }
 
-input UserUpdateDataInput {
-  name: String
-  username: String
-  email: String
-  password: String
-  tasks: TaskUpdateManyWithoutAuthorInput
-  followers: UserUpdateManyInput
-  following: UserUpdateManyInput
-}
-
 input UserUpdateInput {
   name: String
   username: String
   email: String
   password: String
   tasks: TaskUpdateManyWithoutAuthorInput
-  followers: UserUpdateManyInput
-  following: UserUpdateManyInput
-}
-
-input UserUpdateManyInput {
-  create: [UserCreateInput!]
-  connect: [UserWhereUniqueInput!]
-  disconnect: [UserWhereUniqueInput!]
-  delete: [UserWhereUniqueInput!]
-  update: [UserUpdateWithWhereUniqueNestedInput!]
-  upsert: [UserUpsertWithWhereUniqueNestedInput!]
 }
 
 input UserUpdateOneWithoutTasksInput {
@@ -564,24 +484,11 @@ input UserUpdateWithoutTasksDataInput {
   username: String
   email: String
   password: String
-  followers: UserUpdateManyInput
-  following: UserUpdateManyInput
-}
-
-input UserUpdateWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput!
-  data: UserUpdateDataInput!
 }
 
 input UserUpsertWithoutTasksInput {
   update: UserUpdateWithoutTasksDataInput!
   create: UserCreateWithoutTasksInput!
-}
-
-input UserUpsertWithWhereUniqueNestedInput {
-  where: UserWhereUniqueInput!
-  update: UserUpdateDataInput!
-  create: UserCreateInput!
 }
 
 input UserWhereInput {
@@ -796,18 +703,6 @@ input UserWhereInput {
   tasks_every: TaskWhereInput
   tasks_some: TaskWhereInput
   tasks_none: TaskWhereInput
-  followers_every: UserWhereInput
-  followers_some: UserWhereInput
-  followers_none: UserWhereInput
-  following_every: UserWhereInput
-  following_some: UserWhereInput
-  following_none: UserWhereInput
-  _MagicalBackRelation_UserFollows_every: UserWhereInput
-  _MagicalBackRelation_UserFollows_some: UserWhereInput
-  _MagicalBackRelation_UserFollows_none: UserWhereInput
-  _MagicalBackRelation_UserFollowing_every: UserWhereInput
-  _MagicalBackRelation_UserFollowing_some: UserWhereInput
-  _MagicalBackRelation_UserFollowing_none: UserWhereInput
 }
 
 input UserWhereUniqueInput {
