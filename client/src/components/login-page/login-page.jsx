@@ -2,7 +2,6 @@ import * as React from "react"
 import { Mutation } from "react-apollo"
 import { Link } from "react-router-dom"
 import gql from "graphql-tag"
-import "./login-page.css"
 
 const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
@@ -31,11 +30,10 @@ class LoginPage extends React.Component {
     // this.props.history.push("/login")
   }
 
-
   render() {
     const token = localStorage.getItem("token")
     return (
-      <div className="page">
+      <div>
       
 
         <Mutation mutation={LOGIN}>
@@ -64,36 +62,37 @@ class LoginPage extends React.Component {
                     }
                   }}
                 >
-                  <div className="loginheading">
-                    <div className="heading">Log in to an existing account.</div>
-                    <div className="email"><input
+                  <div className="loginheading" className="heading">
+                    Log in to an existing account.
+                    <input
                       type="text"
                       className="emailinput"
-                      placeholder="email"
+                      className="email"
+                      placeholder="Type email here"
                       onChange={e => this.setState({ email: e.target.value })}
                     />
-                    </div>
-                    <div className="passWord"><input
+                    <input
                       type="password"
+                      className="passWord"
                       className="passwordinput"
-                      placeholder="password"
+                      placeholder="Type password here"
                       onChange={e =>
                         this.setState({ password: e.target.value })
                       }
-                    /></div>
-                    <div><button type="submit" className="loginbutton">
-                      submit
-                    </button></div><p/>
+                    />
                     <Link className="signuplink" to="/signup">
                       Don't have an account? Sign Up!
                     </Link>
-                    {/* {token ? (
+                    <button type="submit" className="loginbutton">
+                      submit
+                    </button>
+                    {token ? (
             <button onClick={this.onLogout} className="logout">logout</button>
           ) : (
             <Link to="/login" className="login">
               login
             </Link>
-          )} */}
+          )}
                   </div>
                 </form>
               </div>
