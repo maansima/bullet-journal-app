@@ -16,10 +16,11 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    outline: none;
 }
 
 .loginheading {
-    padding: 200px;
+    padding: 170px;
 }
 
 .passWord {
@@ -33,13 +34,19 @@ input[type=password], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    outline: none;
 }
 
 .padding {
     padding: 10px;
 }
 
-.loginbutton {
+a {
+    color:black;
+    text-decoration:none;
+}
+
+button {
     display:inline-block;
     padding:0.35em 1.2em;
     border:0.1em solid #FFFFFF;
@@ -49,13 +56,15 @@ input[type=password], select {
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
-    color:#FFFFFF;
+    color:#000;
+    background-color:transparent;
     text-align:center;
     transition: all 0.2s;
+    outline: none;
 }
 
-.loginbutton hover {
-    color:#000000;
+button:hover {
+    color:#000;
     background-color: #FFFFFF;
 }
 @media all and (max-width:30em) {
@@ -63,4 +72,8 @@ input[type=password], select {
     display:block;
     margin:0.4em auto;
 }
+}
+
+.signuplink {
+    padding-top: 20px;
 }

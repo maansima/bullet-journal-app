@@ -83,7 +83,7 @@ class LoginPage extends React.Component {
                     /></div>
                     <div><button type="submit" className="loginbutton">
                       submit
-                    </button></div>
+                    </button></div><p/>
                     <Link className="signuplink" to="/signup">
                       Don't have an account? Sign Up!
                     </Link>

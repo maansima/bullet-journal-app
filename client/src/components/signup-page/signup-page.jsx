@@ -17,7 +17,7 @@ class SignUp extends React.Component {
                 {/* <Navigation history={this.props.history} /> */}
                 <header className="App-header">
                     {/* <img src={logo} className="App-logo" alt={"logo"} /> */}
-                    <h1 className="App-title">TWEETER</h1>
+                    <h1 className="App-title">Bullet Journal</h1>
                 <Mutation mutation={SIGNUP}>
                     {signup => {
                         return (
