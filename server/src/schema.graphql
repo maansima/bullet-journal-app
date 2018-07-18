@@ -6,10 +6,15 @@ type Query {
 }
 
 type Mutation {
-  signup(name: String!, email: String!, password: String!, username: String!): AuthPayload!
+  signup(
+    name: String!
+    email: String!
+    password: String!
+    username: String!
+  ): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
   createTask(text: String!): Task!
-  follow(follow_username: String!, username: String!): User 
+  follow(follow_username: String!, username: String!): User
   unfollow(unfollow_username: String!, username: String!): User
 }
 
@@ -22,11 +27,11 @@ type User {
   id: ID!
   email: String!
   name: String!
-  username: String! 
+  username: String!
 }
 
-type Task{ 
-  text: String! 
-  author: User! 
-  status: String! 
+type Task {
+  text: String!
+  author: User!
+  status: String!
 }
