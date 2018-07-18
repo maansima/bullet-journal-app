@@ -10,13 +10,17 @@ class Themetwo extends React.Component {
           <form className="form">
             <input type="text" placeholder="Enter your new task here.." />
           </form>
+          <button className="create-task">Create Task</button>
+          {/* <button className="create-task">Create Task</button> */}
         </div>
         <div className="grid right">
           <div className="sidebar-one">Accountability Task</div>
         </div>
         <div className="sidebar-two">
           {/* <div className="title">Actual Calendar</div> */}
+
           <div className="column">
+            <img src="./prev.png" alt="picture" />
             <h2>Column 1</h2>
             <p>Some text..</p>
           </div>
