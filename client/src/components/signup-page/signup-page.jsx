@@ -1,7 +1,21 @@
 import "./signup-page.css"
 import * as React from "react"
 import { Mutation } from "react-apollo"
-// import gql from "graphql-tag"
+import gql from "graphql-tag"
+
+const SIGNUP = gql`
+mutation signup($email: String!, $password: String!, $name: String!, $username: String!) {
+    signup(email: $email, password: $password, name: $name, username: $username) {
+      token
+      user {
+        id
+        name
+        email
+        username
+      }
+    }
+  }
+`
 
 class SignUp extends React.Component {
     state = {
