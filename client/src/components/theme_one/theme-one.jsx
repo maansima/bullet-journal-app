@@ -1,5 +1,7 @@
 import * as React from "react"
 import "./theme_one.css"
+import Feed from "../feed/feed"
+import CreateTaskForm from "../create-task-form/create-task-form"
 
 class Theme_One extends React.Component {
   render() {
@@ -11,10 +13,11 @@ class Theme_One extends React.Component {
         {/* <div className="container_for_top"> */}
         <div className="grid left">
           <h1>Bullet</h1>
-          <form className="form">
+          <CreateTaskForm />
+          {/* <form className="form">
             <input type="text" placeholder="enter your new task here!" />
           </form>
-          <button className="create-task">Create Task</button>
+          <button className="create-task">Create Task</button> */}
         </div>
         <div className="grid right">
           <div className="sidebar-one">Accountability Tasks</div>
@@ -22,11 +25,11 @@ class Theme_One extends React.Component {
         {/* </div> */}
         <div className="sidebar-two">
           {/*  The div class title is actually for the Actual Calendar */}
-
+          <i class="left-arrow" />
           <div className="column">
             <h2>Date One</h2>
             <p>Some text..</p>
-            <label htmlFor className="container">
+            <label htmlFor="container">
               Enter your task :
               <input type="checkbox" checked="checked" />
               <span className="checkmark" />
@@ -48,43 +51,10 @@ class Theme_One extends React.Component {
             <h2>Date Five</h2>
             <p>Some text..</p>
           </div>
+          <i class="right-arrow" />
         </div>
+        <Feed />
       </div>
-
-      // <div className="Main-app">
-      //   MAIN BACKGROUND APP
-      //   {/* this will be white with the bullet and the little input form  */}
-      //   <form className="input-task">
-      //     <style>
-      //       @import url('https://fonts.googleapis.com/css?family=Knewave');
-      //     </style>
-      //     Bullet
-      //     <input type="text" placeholder="enter your new task here!" />
-      //     <button>Create Task</button>
-      //   </form>
-      //   <div className="sidebar-one">Accountability Task</div>
-      //   <div className="sidebar-two">
-      //     Actual Calendar
-      //     <div className="row">
-      //       <div className="column">
-      //         <h2>Column 1</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //       <div className="column">
-      //         <h2>Column 2</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //       <div className="column">
-      //         <h2>Column 3</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //       <div className="column">
-      //         <h2>Column 4</h2>
-      //         <p>Some text..</p>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
     )
   }
 }

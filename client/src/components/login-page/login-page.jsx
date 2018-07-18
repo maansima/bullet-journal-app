@@ -2,6 +2,7 @@ import * as React from "react"
 import { Mutation } from "react-apollo"
 import { Link } from "react-router-dom"
 import gql from "graphql-tag"
+import "./login-page.css"
 
 const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
@@ -34,7 +35,7 @@ class LoginPage extends React.Component {
   render() {
     const token = localStorage.getItem("token")
     return (
-      <div>
+      <div className="page">
       
 
         <Mutation mutation={LOGIN}>
@@ -64,27 +65,28 @@ class LoginPage extends React.Component {
                   }}
                 >
                   <div className="loginheading">
-                    Log in to an existing account.
-                    <input
+                    <div>Log in to an existing account.</div>
+                    <div><input
                       type="text"
                       className="emailinput"
-                      placeholder="Type email here"
+                      placeholder="email"
                       onChange={e => this.setState({ email: e.target.value })}
                     />
-                    <input
+                    </div>
+                    <div className="password"><input
                       type="password"
                       className="passwordinput"
-                      placeholder="Type password here"
+                      placeholder="password"
                       onChange={e =>
                         this.setState({ password: e.target.value })
                       }
-                    />
+                    /></div>
+                    <div><button type="submit" className="loginbutton">
+                      submit
+                    </button></div>
                     <Link className="signuplink" to="/signup">
                       Don't have an account? Sign Up!
                     </Link>
-                    <button type="submit" className="loginbutton">
-                      submit
-                    </button>
                     {token ? (
             <button onClick={this.onLogout} className="logout">logout</button>
           ) : (
