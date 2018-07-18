@@ -1,4 +1,5 @@
 import * as React from "react"
+import "./theme_one.css"
 
 class Theme_One extends React.Component {
   render() {
@@ -7,11 +8,12 @@ class Theme_One extends React.Component {
         MAIN BACKGROUND APP
         {/* this will be white with the bullet and the little input form  */}
         <form className="input-task">
-          <input type="text" plaecholder="enter your new task here!" />
+          Bullet
+          <input type="text" placeholder="enter your new task here!" />
+          <button>Create Task</button>
         </form>
-        <div className="sidebar-one">SIDEBAR TWO</div>
-        <div className="sidebar-two">sidebar two</div>
-        <div className="sidebar-three">sidebar three</div>
+        <div className="sidebar-one">Accountability Task</div>
+        <div className="sidebar-two">Actual Calendar</div>
       </div>
     )
   }
