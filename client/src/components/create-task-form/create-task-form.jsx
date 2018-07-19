@@ -1,6 +1,6 @@
 import * as React from "react"
 import gql from "graphql-tag"
-import ReactDOM from "react-dom"
+
 import { Mutation } from "react-apollo"
 import { SingleDatePicker } from "react-dates"
 
@@ -59,7 +59,6 @@ class CreateTaskForm extends React.Component {
                     onFocusChange={({ focused }) => this.setState({ focused })}
                     id="date-picker"
                   />
-
                   <button type="submit" className="newtaskbutton">
                     Create Task
                   </button>
