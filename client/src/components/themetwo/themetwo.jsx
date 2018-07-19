@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./themetwo.css"
 import Feed from "../feed/feed"
-import theme from "./prev.png"
+// import theme from "./prev.png"
 class Themetwo extends React.Component {
   render() {
     return (
@@ -22,7 +22,7 @@ class Themetwo extends React.Component {
           {/* <div className="title">Actual Calendar</div> */}
 
           <div className="container">
-            <img src={theme} alt={theme} />
+            {/* <img src={theme} alt={theme} /> */}
             <h2>Column 1</h2>
             <p>Some text..</p>
           </div>
