@@ -1,13 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
 /* sets the entire background of the page */
 html,
 body {
-  /* background-color: lightcyan; */
+  background-color: lightcyan;
   /* background-image: url(./worn_dots.png);
-  background-repeat: repeat; */
+  background-repeat: repeat;*/
 }
 
 /* sets the speicifc div that will hold the input box  */
@@ -16,18 +12,27 @@ body {
   text-align: center;
 }
 
-i {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 15px;
+/* arrow creation  */
+a {
+  text-decoration: none;
+
+  padding: 8px 16px;
 }
 
-.left-arrow {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  float: left;
+.previous {
+  background-color: #f1f1f1;
+  color: black;
 }
+
+.next {
+  background-color: #4caf50;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+/* end of arrow creation */
 
 /* Create four equal columns that floats next to each other */
 .column {
@@ -46,16 +51,6 @@ i {
   background-image: url(./worn_dots.png);
   /* background-color: #f4a698; */
 }
-
-/* from here will create the arrows */
-
-.right-arrow {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  float: right;
-}
-
-/* end of arrow creation  */
 
 .form {
   align-content: left;
@@ -123,7 +118,7 @@ textarea {
   padding: 10px;
   height: 300px;
 }
-.left {
+.left_side {
   width: 60%;
   border-style: solid;
   border-width: 2px;
@@ -137,7 +132,7 @@ textarea {
 }
 
 /* this is the one that has accountability */
-.right {
+.right_side {
   width: 40%;
   border-style: solid;
   border-width: 2px;
@@ -214,3 +209,5 @@ textarea {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/* this is for the toggle bar  */

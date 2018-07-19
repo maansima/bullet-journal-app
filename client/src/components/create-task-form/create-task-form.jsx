@@ -3,18 +3,17 @@ import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 
 const CREATE_TASK = gql`
-mutation createTask($text: String!) {
-  createTask(text: $text) {
-    text
-    author {
-      id
-      name
-      email
+  mutation createTask($text: String!) {
+    createTask(text: $text) {
+      text
+      author {
+        id
+        name
+        email
+      }
     }
   }
-}
 `
-
 
 class CreateTaskForm extends React.Component {
   render() {
@@ -31,7 +30,7 @@ class CreateTaskForm extends React.Component {
                     e.preventDefault()
                     await createTask({
                       variables: {
-                        text: input.value,
+                        text: input.value
                       }
                     })
                     this.props.refetchFeedTasks()
@@ -46,7 +45,7 @@ class CreateTaskForm extends React.Component {
                     }}
                   />
                   <button type="submit" className="newtaskbutton">
-                  →
+                    Create Task
                   </button>
                 </form>
               </div>
