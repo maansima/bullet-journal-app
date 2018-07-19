@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "moment": "^2.22.2"
+=======
+    "storybook": "^1.0.0"
+>>>>>>> bcabeefd43079af6f8ed24c74a04812736368912
   }
 }

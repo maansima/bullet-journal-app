@@ -6,6 +6,7 @@ const CREATE_TASK = gql`
 mutation createTask($text: String!) {
   createTask(text: $text) {
     text
+    dueDate
     author {
       id
       name
@@ -48,6 +49,7 @@ class CreateTaskForm extends React.Component {
                   <button type="submit" className="newtaskbutton">
                   →
                   </button>
+                  
                 </form>
               </div>
             )
