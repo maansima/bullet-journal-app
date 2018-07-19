@@ -44,7 +44,11 @@ body {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+input[type="text"] {
+=======
 input {
+>>>>>>> bcabeefd43079af6f8ed24c74a04812736368912
   float: left;
   width: 60%;
   box-sizing: border-box;

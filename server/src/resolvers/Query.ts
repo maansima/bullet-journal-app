@@ -8,7 +8,8 @@ export default {
   async taskFeed(parent, args, ctx: Context, info) {
     return await ctx.db.query.tasks(
       {
-        orderBy: args.orderBy
+        orderBy: args.orderBy,
+        where: args.where
       },
       info
     )
