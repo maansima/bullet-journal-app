@@ -4,8 +4,18 @@ import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
 
 const SIGNUP = gql`
-mutation signup($email: String!, $password: String!, $name: String!, $username: String!) {
-    signup(email: $email, password: $password, name: $name, username: $username) {
+  mutation signup(
+    $email: String!
+    $password: String!
+    $name: String!
+    $username: String!
+  ) {
+    signup(
+      email: $email
+      password: $password
+      name: $name
+      username: $username
+    ) {
       token
       user {
         id
@@ -21,7 +31,8 @@ class SignUp extends React.Component {
   state = {
     email: "",
     name: "",
-    password: ""
+    password: "",
+    username: ""
   }
 
   render() {
@@ -43,7 +54,8 @@ class SignUp extends React.Component {
                           variables: {
                             email: this.state.email,
                             name: this.state.name,
-                            password: this.state.password
+                            password: this.state.password,
+                            username: this.state.username
                           }
                         })
                         localStorage.setItem("token", data.signup.token)
@@ -72,6 +84,15 @@ class SignUp extends React.Component {
                       <input
                         placeholder="name"
                         onChange={e => this.setState({ name: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="username"
+                        placeholder="username"
+                        onChange={e =>
+                          this.setState({ username: e.target.value })
+                        }
                       />
                     </div>
                     <button type="submit">SIGNUP!</button>
