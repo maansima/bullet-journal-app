@@ -16,5 +16,5 @@ type Task {
   author: User!
   createdAt: DateTime!
   updatedAt: DateTime!
-  
+  dueDate: DateTime!
 }

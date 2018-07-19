@@ -1,8 +1,26 @@
 import * as React from "react"
 import "./themetwo.css"
 import Feed from "../feed/feed"
+import moment from "../../utils/moment"
+import { eachOfLimit } from "async"
 
 class Themetwo extends React.Component {
+  state = {
+    days: null
+  }
+
+  componentDidMount() {
+    const fromDate = moment()
+    const toDate = moment().add(5, "days")
+    var range = moment().range(fromDate, toDate)
+    const diff = Array.from(range.by("days"))
+    const days = diff.map(moment => {
+      return {
+        momentDate: moment
+      }
+    })
+    this.setState({ days })
+  }
   render() {
     return (
       <div className="main">
@@ -20,29 +38,17 @@ class Themetwo extends React.Component {
         <div className="sidebar-two">
           {/* <div className="title">Actual Calendar</div> */}
 
-          <div className="container">
-            <img src="./prev.png" alt="picture" />
-            <h2>Column 1</h2>
-            <p>Some text..</p>
-          </div>
-          <div className="container">
-            <h2>Column 2</h2>
-            <p>Some text..</p>
-          </div>
-          <div className="container">
-            <h2>Column 3</h2>
-            <p>Some text..</p>
-          </div>
-          <div className="container">
-            <h2>Column 4</h2>
-            <p>Some text..</p>
-          </div>
-          <div className="container">
-            <h2>Column 5</h2>
-            <p>Some text..</p>
-          </div>
+          {this.state.days &&
+            this.state.days.map((day, index) => {
+              return (
+                <div className="container" key={index}>
+                  <h2> {day.momentDate.format("dddd, MMMM Do YYYY")}</h2>
+                  <p>Some text..</p>
+                </div>
+              )
+            })}
         </div>
-        <Feed /> 
+        <Feed />
       </div>
     )
   }

@@ -4,6 +4,8 @@ import Feed from "../feed/feed"
 import CreateTaskForm from "../create-task-form/create-task-form"
 
 class Theme_One extends React.Component {
+  componentDidMount() {}
+
   render() {
     return (
       <div className="main-app">
