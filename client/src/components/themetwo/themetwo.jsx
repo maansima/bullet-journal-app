@@ -71,8 +71,10 @@ class Themetwo extends React.Component {
                           tasks[key].map(task => {
                             return (
                               <div>
+                                <div>
                                 {task.text}
                                 author: {task.author.name}
+                                </div>
                               </div>
                             )
                           })}
