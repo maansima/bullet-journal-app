@@ -29,7 +29,8 @@ class Themetwo extends React.Component {
       <div className="main">
         <div className="grid1 left1">
           <h1>Bullet</h1>
-          <form className="form">
+          <Feed />
+          {/* <form className="form">
             <input type="text" placeholder="Enter your new task here.." />
           </form>
           <button className="create-task1">Create Task</button>
