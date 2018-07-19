@@ -4,6 +4,9 @@ import { Query } from "react-apollo"
 import { groupBy } from "lodash"
 import "./themetwo.css"
 import Feed from "../feed/feed"
+<<<<<<< HEAD
+// import theme from "./prev.png"
+=======
 import moment from "../../utils/moment"
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
@@ -24,16 +27,22 @@ const GET_TASKS_WITHIN_DATES = gql`
   }
 `
 
+>>>>>>> bcabeefd43079af6f8ed24c74a04812736368912
 class Themetwo extends React.Component {
   render() {
     return (
       <div className="main">
         <div className="grid1 left1">
           <h1>Bullet</h1>
-          <form className="form">
+          <Feed />
+          {/* <form className="form">
             <input type="text" placeholder="Enter your new task here.." />
           </form>
+<<<<<<< HEAD
+          <button className="create-task1">Create Task</button> */}
+=======
           <button className="create-task1">Create Task</button>
+>>>>>>> bcabeefd43079af6f8ed24c74a04812736368912
           {/* <button className="create-task">Create Task</button> */}
         </div>
         <div className="grid1 right1">
@@ -59,6 +68,29 @@ class Themetwo extends React.Component {
 
               console.log({ tasks })
 
+<<<<<<< HEAD
+          <div className="container">
+            {/* <img src={theme} alt={theme} /> */}
+            <h2>Column 1</h2>
+            <p>Some text..</p>
+          </div>
+          <div className="container">
+            <h2>Column 2</h2>
+            <p>Some text..</p>
+          </div>
+          <div className="container">
+            <h2>Column 3</h2>
+            <p>Some text..</p>
+          </div>
+          <div className="container">
+            <h2>Column 4</h2>
+            <p>Some text..</p>
+          </div>
+          <div className="container">
+            <h2>Column 5</h2>
+            <p>Some text..</p>
+          </div>
+=======
               return (
                 <div>
                   {Object.keys(tasks).map(key => {
@@ -83,6 +115,7 @@ class Themetwo extends React.Component {
               )
             }}
           </Query>
+>>>>>>> bcabeefd43079af6f8ed24c74a04812736368912
         </div>
         <Feed />
       </div>
