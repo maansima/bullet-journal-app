@@ -11,21 +11,22 @@ body {
   text-align: center;
 }
 .container {
-  float: left;
-  width: 18%;
+  width: 250px;
   padding: 10px;
   margin: 15px 10px;
-  height: 400px; /* Should be removed. Only for demonstration */
+  height: auto;
   opacity: 0.9;
-  /* background-color: #e9e0e0; */
   border: 1px solid #ccc;
-  /* background-color: #f8f4e3;
-    border: 1px solid #979797; */
   border-radius: 20px;
   background-color: #86b7f3;
-  /* background-image: url(./linedpaper.png);
-    background-repeat: repeat; */
 }
+
+.feed-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .form {
   align-content: left;
 }
