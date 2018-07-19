@@ -5,6 +5,8 @@ import { groupBy } from "lodash"
 import "./themetwo.css"
 import Feed from "../feed/feed"
 import moment from "../../utils/moment"
+import CreateTaskForm from "../create-task-form/create-task-form"
+import Navigation from "../navigation/navigation"
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
 
@@ -26,8 +28,8 @@ class Themetwo extends React.Component {
   render() {
     return (
       <div className="main">
+        <Navigation />
         <div className="grid1 left1">
-          <h1>Bullet</h1>
           <Feed />
           {/* <form className="form">
             <input type="text" placeholder="Enter your new task here.." />
@@ -35,9 +37,9 @@ class Themetwo extends React.Component {
           <button className="create-task1">Create Task</button>
           {/* <button className="create-task">Create Task</button> */}
         </div>
-        <div className="grid1 right1">
+        {/* <div className="grid1 right1">
           <div className="sidebar-one">Accountability Task</div>
-        </div>
+        </div> */}
         <div className="sidebar-two">
           {/* <div className="title">Actual Calendar</div> */}
           <Query
@@ -66,17 +68,20 @@ class Themetwo extends React.Component {
                     console.log({ key })
                     return (
                       <div className="container">
-                        <h2> {moment(key).format("dddd, MMMM Do YYYY")}</h2>
+                        <h2 className="date">
+                          {" "}
+                          {moment(key).format("dddd, MMMM Do YYYY")}
+                        </h2>
                         {tasks[key] &&
                           tasks[key].map(task => {
                             return (
                               <div>
-                                {task.text}
-                                author: {task.author.name}
+                                <div className="author">{task.author.name}</div>
+                                <div className="text">{task.text}</div>
+                                <br />
                               </div>
                             )
                           })}
-                        <p>Some text..</p>
                       </div>
                     )
                   })}
