@@ -23,11 +23,7 @@ body {
 .calendar--nav {
   margin: -15px -15px 15px;
   padding: 0 15px;
-<<<<<<< HEAD
-  background-color: #b670f4;
-=======
   background-color: lightgreen;
->>>>>>> baba0e720f15111ec9ee6e052af41a3be1a11ea1
   color: #fff;
   height: 70px;
   position: relative;
