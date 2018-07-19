@@ -72,6 +72,7 @@ class Themetwo extends React.Component {
                           tasks[key].map(task => {
                             return (
                               <div>
+                                
                                 {task.text}
                                 author: {task.author.name}
                               </div>
@@ -86,7 +87,6 @@ class Themetwo extends React.Component {
             }}
           </Query>
         </div>
-         <Feed />
       </div>
     )
   }
