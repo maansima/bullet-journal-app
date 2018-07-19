@@ -2,6 +2,8 @@ import "./signup-page.css"
 import * as React from "react"
 import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
+import Navigation from "../navigation/navigation"
+
 
 const SIGNUP = gql`
   mutation signup(
@@ -40,11 +42,18 @@ class SignUp extends React.Component {
       <div>
         {/* <Navigation history={this.props.history} /> */}
         {/* <img src={logo} className="App-logo" alt={"logo"} /> */}
-        <header className="bullet-logo">
-          <a href="/">Bullet</a>
-        </header>
+        <Navigation/>
         <Mutation mutation={SIGNUP}>
-          {signup => {
+          {(signup, {error }) => {
+            if (error) {
+                return (
+                  <div className="error">
+                    That email and/or username is already in use.{" "}
+                    <a href="/signup"><b> Sign up again</b></a> or{" "}
+                    <a href="/login"> <b>login.</b></a>
+                  </div>
+                )
+              }
             return (
               <div className="signup-container">
                 <div className="signup-form">
@@ -103,6 +112,9 @@ class SignUp extends React.Component {
                     </button>
                     <p />
                     <p />
+               <a href="/login">
+                 Already have an account? Login!<p/>
+               </a>
                   </form>
                 </div>
               </div>
