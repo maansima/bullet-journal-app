@@ -13,7 +13,7 @@ type Mutation {
     username: String!
   ): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
-  createTask(text: String!, dueDate: DateTime!): Task!
+  createTask(text: String!): Task!
   follow(follow_username: String!, username: String!): User
   unfollow(unfollow_username: String!, username: String!): User
 }
