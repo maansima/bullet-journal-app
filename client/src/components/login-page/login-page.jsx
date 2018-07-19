@@ -34,51 +34,53 @@ class LoginPage extends React.Component {
   render() {
     const token = localStorage.getItem("token")
     return (
-      <div className="login-container">
+      <div>
+        <header className="bullet-logo">Bullet</header>
         <Mutation mutation={LOGIN}>
           {login => {
             return (
-              <form
-                onSubmit={async e => {
-                  e.preventDefault()
-                  try {
-                    const { data } = await login({
-                      variables: {
-                        email: this.state.email,
-                        password: this.state.password
-                      }
-                    })
-                    localStorage.setItem("token", data.login.token)
-                    localStorage.setItem(
-                      "user",
-                      JSON.stringify(data.login.user)
-                    )
-                    this.props.history.push(`/${data.login.user.username}`)
-                  } catch (error) {
-                    localStorage.removeItem("token")
-                    localStorage.removeItem("user")
-                  }
-                }}
-              >
-                <input
-                  type="text"
-                  placeholder="email"
-                  onChange={e => this.setState({ email: e.target.value })}
-                />
-                <input
-                  type="password"
-                  placeholder="password"
-                  onChange={e => this.setState({ password: e.target.value })}
-                />
-                <p />
+              <div className="login-container">
+                <form
+                  onSubmit={async e => {
+                    e.preventDefault()
+                    try {
+                      const { data } = await login({
+                        variables: {
+                          email: this.state.email,
+                          password: this.state.password
+                        }
+                      })
+                      localStorage.setItem("token", data.login.token)
+                      localStorage.setItem(
+                        "user",
+                        JSON.stringify(data.login.user)
+                      )
+                      this.props.history.push(`/${data.login.user.username}`)
+                    } catch (error) {
+                      localStorage.removeItem("token")
+                      localStorage.removeItem("user")
+                    }
+                  }}
+                >
+                  <input
+                    type="text"
+                    placeholder="email"
+                    onChange={e => this.setState({ email: e.target.value })}
+                  />
+                  <input
+                    type="password"
+                    placeholder="password"
+                    onChange={e => this.setState({ password: e.target.value })}
+                  />
+                </form>
                 <button type="submit" className="loginbutton">
-                  submit
+                  Login
                 </button>
                 <p />
                 <Link className="signuplink" to="/signup">
                   Don't have an account? Sign Up!
                 </Link>
-              </form>
+              </div>
             )
           }}
         </Mutation>

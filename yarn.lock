@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-<<<<<<< HEAD
-moment@^2.22.2:
-  version "2.22.2"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
-=======
 "@storybook/codemod@^3.2.6":
   version "3.4.8"
   resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-3.4.8.tgz#6809f5b12ee262049231dc8cc9aed38125929870"
@@ -1732,6 +1727,10 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+moment@^2.22.2:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -2487,4 +2486,3 @@ yargs@~3.27.0:
     os-locale "^1.4.0"
     window-size "^0.1.2"
     y18n "^3.2.0"
->>>>>>> bcabeefd43079af6f8ed24c74a04812736368912
