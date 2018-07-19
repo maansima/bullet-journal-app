@@ -49,7 +49,7 @@ class CreateTaskForm extends React.Component {
                 >
                   <input
                     placeholder="Type your task here!"
-                    className="newtaskinput"
+                    type="newtaskinput"
                     onChange={e => this.setState({ text: e.target.value })}
                   />
                   <SingleDatePicker

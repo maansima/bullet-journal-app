@@ -70,14 +70,15 @@ class Themetwo extends React.Component {
                     return (
                       <div className="container">
                         <h2 className="date">
-                          {" "}
                           {moment(key).format("dddd, MMMM Do YYYY")}
                         </h2>
                         {tasks[key] &&
                           tasks[key].map(task => {
                             return (
                               <div>
-                                <div className="author">{task.author.name}</div>
+                                <div className="author">
+                                  @{task.author.name}
+                                </div>
                                 <div className="text">{task.text}</div>
                                 <br />
                               </div>
