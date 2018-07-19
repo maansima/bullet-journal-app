@@ -10,6 +10,7 @@ export const task = {
       {
         data: {
           text: args.text,
+          dueDate: args.dueDate,
           author: {
             connect: {
               id: id
