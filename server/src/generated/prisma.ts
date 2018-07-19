@@ -149,6 +149,7 @@ type Task implements Node {
   author(where: UserWhereInput): User!
   createdAt: DateTime!
   updatedAt: DateTime!
+  dueDate: DateTime!
 }
 
 """A connection to a list of items."""
@@ -163,6 +164,7 @@ type TaskConnection {
 
 input TaskCreateInput {
   text: String!
+  dueDate: DateTime!
   author: UserCreateOneWithoutTasksInput!
 }
 
@@ -173,6 +175,7 @@ input TaskCreateManyWithoutAuthorInput {
 
 input TaskCreateWithoutAuthorInput {
   text: String!
+  dueDate: DateTime!
 }
 
 """An edge in a connection."""
@@ -193,6 +196,8 @@ enum TaskOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  dueDate_ASC
+  dueDate_DESC
 }
 
 type TaskPreviousValues {
@@ -200,6 +205,7 @@ type TaskPreviousValues {
   text: String!
   createdAt: DateTime!
   updatedAt: DateTime!
+  dueDate: DateTime!
 }
 
 type TaskSubscriptionPayload {
@@ -243,6 +249,7 @@ input TaskSubscriptionWhereInput {
 
 input TaskUpdateInput {
   text: String
+  dueDate: DateTime
   author: UserUpdateOneWithoutTasksInput
 }
 
@@ -257,6 +264,7 @@ input TaskUpdateManyWithoutAuthorInput {
 
 input TaskUpdateWithoutAuthorDataInput {
   text: String
+  dueDate: DateTime
 }
 
 input TaskUpdateWithWhereUniqueWithoutAuthorInput {
@@ -403,6 +411,28 @@ input TaskWhereInput {
 
   """All values greater than or equal the given value."""
   updatedAt_gte: DateTime
+  dueDate: DateTime
+
+  """All values that are not equal to given value."""
+  dueDate_not: DateTime
+
+  """All values that are contained in given list."""
+  dueDate_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  dueDate_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  dueDate_lt: DateTime
+
+  """All values less than or equal the given value."""
+  dueDate_lte: DateTime
+
+  """All values greater than the given value."""
+  dueDate_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  dueDate_gte: DateTime
   author: UserWhereInput
 }
 
@@ -799,7 +829,9 @@ export type TaskOrderByInput =   'id_ASC' |
   'createdAt_ASC' |
   'createdAt_DESC' |
   'updatedAt_ASC' |
-  'updatedAt_DESC'
+  'updatedAt_DESC' |
+  'dueDate_ASC' |
+  'dueDate_DESC'
 
 export type MutationType =   'CREATED' |
   'UPDATED' |
@@ -891,6 +923,7 @@ export interface UserWhereInput {
 
 export interface TaskUpdateInput {
   text?: String
+  dueDate?: DateTime
   author?: UserUpdateOneWithoutTasksInput
 }
 
@@ -914,6 +947,7 @@ export interface UserCreateOneWithoutTasksInput {
 
 export interface TaskUpdateWithoutAuthorDataInput {
   text?: String
+  dueDate?: DateTime
 }
 
 export interface UserSubscriptionWhereInput {
@@ -954,11 +988,13 @@ export interface UserUpdateWithoutTasksDataInput {
 
 export interface TaskCreateInput {
   text: String
+  dueDate: DateTime
   author: UserCreateOneWithoutTasksInput
 }
 
 export interface TaskCreateWithoutAuthorInput {
   text: String
+  dueDate: DateTime
 }
 
 export interface UserUpdateInput {
@@ -1044,6 +1080,14 @@ export interface TaskWhereInput {
   updatedAt_lte?: DateTime
   updatedAt_gt?: DateTime
   updatedAt_gte?: DateTime
+  dueDate?: DateTime
+  dueDate_not?: DateTime
+  dueDate_in?: DateTime[] | DateTime
+  dueDate_not_in?: DateTime[] | DateTime
+  dueDate_lt?: DateTime
+  dueDate_lte?: DateTime
+  dueDate_gt?: DateTime
+  dueDate_gte?: DateTime
   author?: UserWhereInput
 }
 
@@ -1071,6 +1115,7 @@ export interface TaskPreviousValues {
   text: String
   createdAt: DateTime
   updatedAt: DateTime
+  dueDate: DateTime
 }
 
 export interface TaskSubscriptionPayload {
@@ -1123,6 +1168,7 @@ export interface Task extends Node {
   author: User
   createdAt: DateTime
   updatedAt: DateTime
+  dueDate: DateTime
 }
 
 export interface UserPreviousValues {

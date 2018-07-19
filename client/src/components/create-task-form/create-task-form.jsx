@@ -3,14 +3,14 @@ import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 
 const CREATE_TASK = gql`
-  mutation createTask($text: String!) {
-    createTask(text: $text) {
-      text
-      author {
-        id
-        name
-        email
-      }
+mutation createTask($text: String!) {
+  createTask(text: $text) {
+    text
+    dueDate
+    author {
+      id
+      name
+      email
     }
   }
 `
