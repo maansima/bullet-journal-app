@@ -35,5 +35,5 @@ type Task {
   updatedAt: String!
   text: String!
   author: User!
-  dueDate: DateTime!
+  # dueDate: DateTime!
 }

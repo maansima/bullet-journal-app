@@ -7,7 +7,6 @@ import Feed from "../feed/feed"
 import moment from "../../utils/moment"
 import CreateTaskForm from "../create-task-form/create-task-form"
 import Navigation from "../navigation/navigation"
-
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
 
