@@ -5,10 +5,10 @@ import { groupBy } from "lodash"
 import "./themetwo.css"
 import Feed from "../feed/feed"
 import moment from "../../utils/moment"
+
+import CreateTaskForm from "../create-task-form/create-task-form"
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
-
-
 
 const GET_TASKS_WITHIN_DATES = gql`
   query tasks($where: TaskWhereInput) {
@@ -84,6 +84,8 @@ class Themetwo extends React.Component {
             }}
           </Query>
         </div>
+        {/* <CreateTaskForm refetchFeedTasks={refetch} class="form" /> */}
+
         <Feed />
       </div>
     )
