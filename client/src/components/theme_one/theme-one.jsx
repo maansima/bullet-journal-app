@@ -3,6 +3,8 @@ import "./theme_one.css"
 import Feed from "../feed/feed"
 
 class Theme_One extends React.Component {
+  componentDidMount() {}
+
   render() {
     return (
       <div className="main-app">
