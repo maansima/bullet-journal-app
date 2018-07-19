@@ -54,9 +54,9 @@ class Feed extends React.Component {
               <div className="form">
                 <CreateTaskForm refetchFeedTasks={refetch} class="form" />
 
-                {data.taskFeed.map(task => {
+                {/* {data.taskFeed.map(task => {
                   return <Task key={this.props.id} {...task} />
-                })}
+                })} */}
               </div>
             )
           }}

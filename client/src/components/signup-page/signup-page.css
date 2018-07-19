@@ -1,6 +1,75 @@
-@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url("https://fonts.googleapis.com/css?family=Raleway:300");
 
-.login-form {
-    font-family: 'Karla', sans-serif;
-    background-color: rgb(243, 219, 248);
+body {
+  background-image: url("background.jpg");
+  background-repeat: repeat;
+}
+input {
+  outline:none;
+}
+
+.bullet-logo {
+  font-family: Raleway;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  font-size: 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+  box-shadow: 3px 3px 3px #a8a8a8;
+}
+.signup-form {
+  width: 500px;
+  font-family: "Raleway", sans-serif;
+  margin: 80px auto;
+  display: flex;
+  justify-content: center;
+  box-shadow: 5px 5px 5px #a8a8a8;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.error {
+  width: 500px;
+  font-family: "Raleway", sans-serif;
+  margin: 80px auto;
+  box-shadow: 5px 5px 5px #a8a8a8;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: white;
+  padding:10px;
+
+}
+
+input[type="email"] {
+  margin-bottom: 15px;
+  width: 450px;
+}
+
+input[type="text"] {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  width: 450px;
+}
+input[type="username"] {
+  margin-bottom: 15px;
+  width: 450px;
+}
+input[type="password"] {
+  width: 450px;
+  margin-bottom: 25px;
+}
+
+.signup-container button {
+  background-color: #fff;
+  width: 150px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #d0d0d0;
+  margin-bottom: 10px;
+}
+
+.signup-container button:hover {
+  background-color: #f8f8f8;
 }

@@ -5,14 +5,13 @@ import { groupBy } from "lodash"
 import "./themetwo.css"
 import Feed from "../feed/feed"
 import moment from "../../utils/moment"
-
 import CreateTaskForm from "../create-task-form/create-task-form"
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
 
 const GET_TASKS_WITHIN_DATES = gql`
   query tasks($where: TaskWhereInput) {
-    taskFeed(orderBy: "createdAt_DESC", where: $where) {
+    taskFeed(orderBy: "dueDate_ASC", where: $where) {
       text
       dueDate
       createdAt
@@ -30,7 +29,8 @@ class Themetwo extends React.Component {
       <div className="main">
         <div className="grid1 left1">
           <h1>Bullet</h1>
-          <form className="form">
+          <Feed />
+          {/* <form className="form">
             <input type="text" placeholder="Enter your new task here.." />
           </form>
           <button className="create-task1">Create Task</button>
@@ -43,9 +43,10 @@ class Themetwo extends React.Component {
           {/* <div className="title">Actual Calendar</div> */}
           <Query
             query={GET_TASKS_WITHIN_DATES}
+            pollInterval={200}
             variables={{
               where: {
-                dueDate_gte: "2018-07-19T22:10:41.237Z",
+                dueDate_gte: "2018-07-18T22:10:41.237Z",
                 dueDate_lte: "2018-09-26T22:10:41.237Z"
               }
             }}
@@ -54,13 +55,14 @@ class Themetwo extends React.Component {
               if (loading) return "kloading..."
               if (error) return "ooops"
               const tasks = groupBy(data.taskFeed, task => {
-                return task.dueDate
+                console.log(task.dueDate)
+                return moment(task.dueDate).format("L")
               })
 
               console.log({ tasks })
 
               return (
-                <div>
+                <div className="feed-wrapper">
                   {Object.keys(tasks).map(key => {
                     console.log({ key })
                     return (
@@ -84,8 +86,6 @@ class Themetwo extends React.Component {
             }}
           </Query>
         </div>
-        {/* <CreateTaskForm refetchFeedTasks={refetch} class="form" /> */}
-
         <Feed />
       </div>
     )
