@@ -26,7 +26,6 @@ input {
 input[type="text"] {
   width: 450px;
   padding: 12px 20px;
-  margin: 10px;
   display: block;
   border: 1px solid #ccc;
   border-radius: 4px;
