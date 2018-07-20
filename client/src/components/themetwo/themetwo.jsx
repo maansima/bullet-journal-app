@@ -7,6 +7,8 @@ import Feed from "../feed/feed"
 import moment from "../../utils/moment"
 import CreateTaskForm from "../create-task-form/create-task-form"
 import Navigation from "../navigation/navigation"
+import DeleteTask from "../delete-task/delete-task"
+
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
 
@@ -14,6 +16,7 @@ const GET_TASKS_WITHIN_DATES = gql`
   query tasks($where: TaskWhereInput) {
     taskFeed(orderBy: "dueDate_ASC", where: $where) {
       text
+      id
       dueDate
       createdAt
       updatedAt
@@ -44,7 +47,7 @@ class Themetwo extends React.Component {
           {/* <div className="title">Actual Calendar</div> */}
           <Query
             query={GET_TASKS_WITHIN_DATES}
-            pollInterval={200}
+            pollInterval={5000}
             variables={{
               where: {
                 dueDate_gte: "2018-07-18T22:10:41.237Z",
@@ -52,7 +55,7 @@ class Themetwo extends React.Component {
               }
             }}
           >
-            {({ data, loading, error }) => {
+            {({ data, loading, error, refetch }) => {
               if (loading) return "kloading..."
               if (error) return "ooops"
               const tasks = groupBy(data.taskFeed, task => {
@@ -75,11 +78,14 @@ class Themetwo extends React.Component {
                           tasks[key].map(task => {
                             return (
                               <div>
-                                <div className="author">
-                                  @{task.author.name}
-                                </div>
                                 <div className="text">{task.text}</div>
                                 <br />
+                                <center>
+                                  <DeleteTask
+                                    id={task.id}
+                                    refetchDeleteTask={refetch}
+                                  />
+                                </center>
                               </div>
                             )
                           })}

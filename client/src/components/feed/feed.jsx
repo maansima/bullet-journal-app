@@ -2,6 +2,7 @@ import * as React from "react"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
 import CreateTaskForm from "../create-task-form/create-task-form"
+import DeleteTask from "../delete-task/delete-task"
 import Task from "../task/task"
 
 const GET_TASKS = gql`
