@@ -5,6 +5,7 @@ import { SingleDatePicker } from "react-dates"
 import moment from "../../utils/moment"
 import "./create-task-form.css"
 
+
 const CREATE_TASK = gql`
   mutation createTask($text: String!, $dueDate: DateTime!) {
     createTask(text: $text, dueDate: $dueDate) {

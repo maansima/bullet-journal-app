@@ -10,3 +10,30 @@ img {
     background-color: #fff;
     border-bottom: 2px solid #000;
    }
+
+   .logoutbutton{ 
+    display: inline-block; 
+    position: absolute; 
+    top: 20px; 
+    right: 10px;
+    font-family: Raleway;
+    /* padding: 20px; */
+    font-size: 30px;
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+   }
+
+.logout-button{
+   
+  background-color: rgba(0,0,0,0);
+  text-decoration: none;
+  border-style: none;
+  box-sizing: content-box;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  perspective-origin: 0 0;
+  text-align: start;
+  transform-origin: 0 0;
+  
+}

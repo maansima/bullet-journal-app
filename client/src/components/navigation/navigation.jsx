@@ -35,10 +35,19 @@ class LoginPage extends React.Component {
  render() {
    const token = localStorage.getItem("token")
    return (
-     <div>
+     <div className="navigation header">
         <header className="bullet-logo"><a href="/">
         <img src={logo} width="60px"/>
         Bullet</a></header>
+        <div className="logoutbutton">
+          {token ? (
+            <button onClick={this.onLogout} className="logout-button" >logout</button>
+          ) : (
+            <Link to="/login" className="login">
+              login
+            </Link>
+          )}
+        </div>
      </div>
    )
  }
