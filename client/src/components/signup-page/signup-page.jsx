@@ -4,7 +4,6 @@ import { Mutation } from "react-apollo"
 import gql from "graphql-tag"
 import Navigation from "../navigation/navigation"
 
-
 const SIGNUP = gql`
   mutation signup(
     $email: String!
@@ -42,18 +41,24 @@ class SignUp extends React.Component {
       <div>
         {/* <Navigation history={this.props.history} /> */}
         {/* <img src={logo} className="App-logo" alt={"logo"} /> */}
-        <Navigation/>
+        <Navigation />
         <Mutation mutation={SIGNUP}>
-          {(signup, {error }) => {
+          {(signup, { error }) => {
             if (error) {
-                return (
-                  <div className="error">
-                    That email and/or username is already in use.{" "}
-                    <a href="/signup"><b> Sign up again</b></a> or{" "}
-                    <a href="/login"> <b>login.</b></a>
-                  </div>
-                )
-              }
+              return (
+                <div className="error">
+                  That email and/or username is already in use.{" "}
+                  <a href="/signup">
+                    <b> Sign up again</b>
+                  </a>{" "}
+                  or{" "}
+                  <a href="/login">
+                    {" "}
+                    <b>login.</b>
+                  </a>
+                </div>
+              )
+            }
             return (
               <div className="signup-container">
                 <div className="signup-form">
@@ -70,7 +75,7 @@ class SignUp extends React.Component {
                           }
                         })
                         localStorage.setItem("token", data.signup.token)
-                        this.props.history.push(`/myprofile`)
+                        this.props.history.push(`/themetwo`)
                       } catch (error) {
                         localStorage.removeItem("token")
                       }
@@ -88,7 +93,8 @@ class SignUp extends React.Component {
                         type="username"
                         placeholder="Username"
                         onChange={e =>
-                          this.setState({ username: e.target.value })}
+                          this.setState({ username: e.target.value })
+                        }
                       />
                     </div>
                     <div>
@@ -103,7 +109,8 @@ class SignUp extends React.Component {
                         type="password"
                         placeholder="Password"
                         onChange={e =>
-                          this.setState({ password: e.target.value })}
+                          this.setState({ password: e.target.value })
+                        }
                       />
                     </div>
                     <p />
@@ -112,9 +119,9 @@ class SignUp extends React.Component {
                     </button>
                     <p />
                     <p />
-               <a href="/login">
-                 Already have an account? Login!<p/>
-               </a>
+                    <a href="/login">
+                      Already have an account? Login!<p />
+                    </a>
                   </form>
                 </div>
               </div>
