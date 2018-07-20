@@ -67,7 +67,7 @@ class LoginPage extends React.Component {
                        "user",
                        JSON.stringify(data.login.user)
                      )
-                     this.props.history.push(`/${data.login.user.username}`)
+                     this.props.history.push(`/themetwo`)
                    } catch (error) {
                      localStorage.removeItem("token")
                      localStorage.removeItem("user")
