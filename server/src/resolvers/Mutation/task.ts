@@ -59,5 +59,17 @@ export const task = {
       info
     )
     return updatedUser
+  },
+
+  async deleteTask(parent, args, ctx, info) {
+    const id = args.id
+
+    const deletedTask = await ctx.db.mutation.deleteTask(
+      {
+        where: { id }
+      },
+      info
+    )
+    return deletedTask
   }
 }

@@ -209,3 +209,8 @@ textarea {
 }
 
 /* this is for the toggle bar  */
+
+:checked {
+  margin-left: 25px;
+  border: 1px solid blue;
+}

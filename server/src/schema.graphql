@@ -16,6 +16,7 @@ type Mutation {
   createTask(text: String!, dueDate: DateTime!): Task!
   follow(follow_username: String!, username: String!): User
   unfollow(unfollow_username: String!, username: String!): User
+  deleteTask(id: String!): Task!
 }
 
 type AuthPayload {
@@ -31,6 +32,7 @@ type User {
 }
 
 type Task {
+  id: ID!
   createdAt: String!
   updatedAt: String!
   text: String!
