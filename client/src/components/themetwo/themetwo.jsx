@@ -9,6 +9,7 @@ import CreateTaskForm from "../create-task-form/create-task-form"
 import Navigation from "../navigation/navigation"
 import DeleteTask from "../delete-task/delete-task"
 
+
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
 
@@ -74,6 +75,7 @@ class Themetwo extends React.Component {
                         <h2 className="date">
                           {moment(key).format("dddd, MMMM Do YYYY")}
                         </h2>
+
                         {tasks[key] &&
                           tasks[key].map(task => {
                             return (
