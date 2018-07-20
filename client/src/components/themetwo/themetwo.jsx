@@ -7,6 +7,8 @@ import Feed from "../feed/feed"
 import moment from "../../utils/moment"
 import CreateTaskForm from "../create-task-form/create-task-form"
 import Navigation from "../navigation/navigation"
+import InfiniteScroll from "react-infinite-scroller"
+
 // import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from "react-dates"
 // import "react-dates/initialize"
 
@@ -71,6 +73,7 @@ class Themetwo extends React.Component {
                         <h2 className="date">
                           {moment(key).format("dddd, MMMM Do YYYY")}
                         </h2>
+
                         {tasks[key] &&
                           tasks[key].map(task => {
                             return (

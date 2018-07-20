@@ -6,13 +6,14 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
+  font-family: Raleway, sans-serif;
+
 }
 
 .newtaskbutton{ 
   display: inline-block;
   position: relative; 
   right: 100px;
-  
   padding: 5px;
   border: 1px solid #000;
   margin: 10px auto;
@@ -27,6 +28,8 @@
   transition: all 0.2s;
   outline: none;
   box-shadow: 3px 3px 3px #c4c9d1;
+  font-family: Raleway, sans-serif;
+
   
 }
 
@@ -43,6 +46,8 @@
 .DateInput{ 
   position: relative;
   right: 577px;
+  font-family: Raleway, sans-serif;
+
 }
 
 
