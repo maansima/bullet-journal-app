@@ -1,10 +1,9 @@
-
 input {
-  outline:none;
+  outline: none;
 }
 .login-container {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   padding: 10px;
   margin: 90px auto;
   font-family: Raleway, sans-serif;
@@ -13,18 +12,18 @@ input {
   border: 1px solid black;
   box-shadow: 5px 5px 5px #a8a8a8;
   border-radius: 10px;
- }
+}
 
- .loginlink {
-   padding-left:5px;
-   padding-right:5px;
- }
+.loginlink {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
- .signuplink {
-   padding-left:5px;
- }
- 
- input[type=“text”] {
+.signuplink {
+  padding-left: 5px;
+}
+
+input[type="text"] {
   width: 450px;
   padding: 12px 20px;
   margin: 10px;
@@ -32,11 +31,9 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
- }
- 
+}
 
-
- input[type=“password”] {
+input[type="“password”"] {
   width: 450px;
   padding: 12px 20px;
   margin: 10px;
@@ -44,14 +41,14 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
- }
- 
- a {
+}
+
+a {
   color: black;
   text-decoration: none;
- }
- 
- .login-container button {
+}
+
+.login-container button {
   display: inline-block;
   padding: 0.35em 1.2em;
   border: 1px solid #000;
@@ -67,10 +64,9 @@ input {
   transition: all 0.2s;
   outline: none;
   box-shadow: 3px 3px 3px #c4c9d1;
- }
- 
- .login-container button:hover {
+}
+
+.login-container button:hover {
   color: #000;
   background-color: #f2f4f7;
- }
- 
+}

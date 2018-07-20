@@ -1,10 +1,9 @@
 import * as React from "react"
 import gql from "graphql-tag"
-
 import { Mutation } from "react-apollo"
 import { SingleDatePicker } from "react-dates"
-
 import moment from "../../utils/moment"
+import "./create-task-form.css"
 
 const CREATE_TASK = gql`
   mutation createTask($text: String!, $dueDate: DateTime!) {
@@ -23,7 +22,7 @@ const CREATE_TASK = gql`
 class CreateTaskForm extends React.Component {
   state = {
     date: moment(),
-    focused: true,
+    focused: false,
     text: ""
   }
   render() {
@@ -52,12 +51,12 @@ class CreateTaskForm extends React.Component {
                     className="newtaskinput"
                     onChange={e => this.setState({ text: e.target.value })}
                   />
-                  <SingleDatePicker
+                  <SingleDatePicker 
                     date={this.state.date}
                     onDateChange={date => this.setState({ date })}
                     focused={this.state.focused}
                     onFocusChange={({ focused }) => this.setState({ focused })}
-                    id="date-picker"
+                    
                   />
                   <button type="submit" className="newtaskbutton">
                     Create Task

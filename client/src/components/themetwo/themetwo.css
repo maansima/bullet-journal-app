@@ -2,27 +2,42 @@
   box-sizing: border-box;
 }
 body {
-  /* background-color: #fdf3f3; */
-
-  /* Rectangle: */
-  background-color: #d7e7f9;
+  background-image: url("./background.jpg");
+  background-repeat: repeat;
 }
 .main {
   text-align: center;
 }
 .container {
-  width: 250px;
-  padding: 10px;
-  margin: 15px 10px;
-  height: auto;
-  opacity: 0.9;
-  border: 1px solid #ccc;
+  margin-left: 10px;
+  cursor: auto;
+  text-align: center;
+  width: 600px;
   border-radius: 20px;
-  background-color: #86b7f3;
+  font-family: Raleway, sans-serif;
+  background-color: transparent;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px #ccc;
+}
+.container:hover {
+  cursor: auto;
 }
 
+.author {
+  margin-left: -10px;
+  margin-top: -10px;
+  font-size: 15px;
+  font-style: italic;
+  color: #5ec9ff;
+}
 .feed-wrapper {
-  width: 100%;
+  margin-top: 25px;
+  width: 400px;
+  margin-left: 250px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -53,7 +68,6 @@ input {
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 20px;
@@ -65,7 +79,6 @@ input {
 
 .sidebar-two {
   align-items: center;
-  background-color: #fdf3f3;
   width: 100%;
 }
 
@@ -103,7 +116,20 @@ h1 {
   border-radius: 5px;
 }
 
-:checked {
-  margin-left: 25px;
-  border: 1px solid blue;
+h2 {
+  display: inline-block;
+  font-size: 15px;
+  opacity: 0.7;
+  font-weight: bold;
+  font-family: Raleway, Times, serif;
+}
+
+.date {
+  margin-left: -10px;
+  font-weight: bold;
+}
+
+.text {
+  margin-left: -10px;
+  font-size: 15px;
 }

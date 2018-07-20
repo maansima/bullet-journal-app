@@ -1,6 +1,50 @@
-.newtaskinput {
-  width: 300px;
+.newtaskinput{ 
+  width: 450px;
+  padding: 12px 20px;
+  margin: 10px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
 }
+
+.newtaskbutton{ 
+  display: inline-block;
+  position: relative; 
+  right: 100px;
+  
+  padding: 5px;
+  border: 1px solid #000;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: Raleway, sans-serif;
+  font-weight: 300;
+  color: #000;
+  background-color: transparent;
+  text-align: center;
+  transition: all 0.2s;
+  outline: none;
+  box-shadow: 3px 3px 3px #c4c9d1;
+  
+}
+
+.DayPickerNavigation_button{ 
+  width: 50px;
+}
+
+.DateInput_1{ 
+  width: 0px; 
+  height: 0px;
+  box-decoration-break: none;
+}
+
+.DateInput{ 
+  position: relative;
+  right: 577px;
+}
+
 
 body {
   font-family: "Roboto", sans-serif;
