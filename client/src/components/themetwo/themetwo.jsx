@@ -73,9 +73,18 @@ class Themetwo extends React.Component {
                               <div>
                                 {task.text}
                                 author: {task.author.name}
+                                <div className="checkbox_theme_one">
+                                  <input
+                                    type="checkbox"
+                                    name="my-checkbox"
+                                    id="opt-in"
+                                  />
+                                  <label htmlFor="opt-in">Check me!</label>
+                                </div>
                               </div>
                             )
                           })}
+
                         <p>Some text..</p>
                       </div>
                     )

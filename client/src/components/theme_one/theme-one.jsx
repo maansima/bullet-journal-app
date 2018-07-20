@@ -17,10 +17,6 @@ class Theme_One extends React.Component {
           <h1>Bullet</h1>
 
           <Feed />
-          {/* <form className="form">
-            <input type="text" placeholder="enter your new task here!" />
-          </form>
-          <button className="create-task">Create Task</button> */}
         </div>
         <div className="grid right_side">
           <div className="sidebar-one">Accountability Tasks</div>
@@ -35,11 +31,10 @@ class Theme_One extends React.Component {
           <div className="column">
             <h2>Date One</h2>
             <p>Some text..</p>
-            <label htmlFor="container">
-              Enter your task :
-              <input type="checkbox" checked="checked" />
-              <span className="checkmark" />
-            </label>
+            <div className="checkbox_theme_one">
+              <input type="checkbox" name="my-checkbox" id="opt-in" />
+              <label for="opt-in">Check me!</label>
+            </div>
           </div>
           <div className="column">
             <h2>Date Two</h2>
