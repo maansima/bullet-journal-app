@@ -11,8 +11,8 @@ body {
 .container {
   margin-left: 10px;
   cursor: auto;
-  text-align: left;
-  width: 300px;
+  text-align: center;
+  width: 600px;
   border-radius: 20px;
   font-family: Raleway, sans-serif;
   background-color: transparent;
